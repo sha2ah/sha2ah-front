@@ -10,3 +10,13 @@ export interface IPost {
   createdAt: string;
   category: ICategory;
 }
+
+export interface IRenter {
+  id: string;
+  name: string;
+  phone: string;
+  status: string;
+  email?: string;
+  details?: string;
+  createdAt: string;
+}

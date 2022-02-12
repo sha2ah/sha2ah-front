@@ -5,9 +5,15 @@ import "styles/antd.less";
 import dataProvider from "@pankod/refine-simple-rest";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
-import {Home} from './pages/home'
+import { Home } from "./pages/home";
 import { Login } from "pages/login";
 import { PostList, PostCreate, PostEdit, PostShow } from "pages/posts";
+import {
+  RenterList,
+  RenterCreate,
+  RenterEdit,
+  RenterShow,
+} from "pages/renters";
 import {
   Title,
   Header,
@@ -79,21 +85,21 @@ function App() {
   const CustomRouterComponent = () => <RouterComponent basename="/admin" />;
   return (
     <Refine
-    routerProvider={{
-      ...routerProvider,
-      routes: [
-           {
-              exact: true,
-              component: Home,
-              path: "/",
+      routerProvider={{
+        ...routerProvider,
+        routes: [
+          {
+            exact: true,
+            component: Home,
+            path: "/",
           },
-      ],
-  }}
+        ],
+      }}
       notificationProvider={notificationProvider}
       dataProvider={dataProvider("https://api.fake-rest.refine.dev")}
       // authProvider={authProvider}
       // LoginPage={Login}
-    
+
       resources={[
         {
           name: "posts",
@@ -101,6 +107,13 @@ function App() {
           create: PostCreate,
           edit: PostEdit,
           show: PostShow,
+        },
+        {
+          name: "renters",
+          list: RenterList,
+          create: RenterCreate,
+          edit: RenterEdit,
+          show: RenterShow,
         },
       ]}
       Title={Title}
