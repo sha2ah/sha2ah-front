@@ -9,13 +9,13 @@ import "./i18n";
 ReactDOM.render(
   <React.StrictMode>
     <React.Suspense fallback="loading">
-      <Auth0Provider
-        domain="your-auth0-domain-address"
-        clientId="your-auth0-clientId"
+      {/* <Auth0Provider
+        domain="dev-y10hpogc.us.auth0.com"
+        clientId="H4myyWJctGyTkajtEMvKLgQfg2jY8Myn"
         redirectUri={window.location.origin}
-      >
+      > */}
         <App />
-      </Auth0Provider>
+      {/* </Auth0Provider> */}
     </React.Suspense>
   </React.StrictMode>,
   document.getElementById("root")
