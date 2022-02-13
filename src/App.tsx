@@ -15,6 +15,12 @@ import {
   RenterShow,
 } from "pages/renters";
 import {
+  EstateList,
+  EstateCreate,
+  EstateEdit,
+  EstateShow,
+} from "pages/estates";
+import {
   Title,
   Header,
   Sider,
@@ -114,6 +120,13 @@ function App() {
           create: RenterCreate,
           edit: RenterEdit,
           show: RenterShow,
+        },
+        {
+          name: "estates",
+          list: EstateList,
+          create: EstateCreate,
+          edit: EstateEdit,
+          show: EstateShow,
         },
       ]}
       Title={Title}
