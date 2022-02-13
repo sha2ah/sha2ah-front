@@ -61,19 +61,19 @@ export const RenterList: React.FC<IResourceComponentsProps> = () => {
           sorter
         />
         <Table.Column
+          dataIndex="phone"
+          key="phone"
+          title="Phone"
+          render={(value) => <TextField value={value} />}
+          defaultSortOrder={getDefaultSortOrder("phone", sorter)}
+          sorter
+        />
+        <Table.Column
           dataIndex="createdAt"
           key="createdAt"
           title="Created At"
           render={(value) => <DateField value={value} format="LLL" />}
           defaultSortOrder={getDefaultSortOrder("createdAt", sorter)}
-          sorter
-        />
-        <Table.Column
-          dataIndex="phone"
-          key="phone"
-          title="Phone"
-          render={(value) => <DateField value={value} format="LLL" />}
-          defaultSortOrder={getDefaultSortOrder("phone", sorter)}
           sorter
         />
 
