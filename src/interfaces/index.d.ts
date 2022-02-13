@@ -20,3 +20,12 @@ export interface IRenter {
   details?: string;
   createdAt: string;
 }
+
+export interface IWallet {
+  id: string;
+  totalRecieved: number;
+  recievedOffline: number;
+  recievedOnline: number;
+  totalPending: number;
+  details?: string;
+}
