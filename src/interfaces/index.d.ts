@@ -21,6 +21,17 @@ export interface IRenter {
   createdAt: string;
 }
 
+export interface IState {
+  id: string;
+  name: string;
+  type: string;
+  status: string;
+  floorsNum: number;
+  unitsPerFloor: number;
+  details?: string;
+  createdAt: string;
+}
+
 export interface IWallet {
   id: string;
   totalRecieved: number;
