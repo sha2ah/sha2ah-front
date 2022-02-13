@@ -21,7 +21,7 @@ export interface IRenter {
   createdAt: string;
 }
 
-export interface IState {
+export interface IEstate {
   id: string;
   name: string;
   type: string;
