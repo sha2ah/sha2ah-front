@@ -16,7 +16,7 @@ import 'react-mde/lib/styles/css/react-mde-all.css'
 
 import { IRepairRequest } from 'interfaces'
 
-export const InvoiceCreate: React.FC<IResourceComponentsProps> = () => {
+export const RepairRequestCreate: React.FC<IResourceComponentsProps> = () => {
   const [selectedTab, setSelectedTab] = useState<'write' | 'preview'>('write')
 
   const t = useTranslate()

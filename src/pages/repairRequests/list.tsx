@@ -19,12 +19,12 @@ import {
   Select,
   ShowButton,
 } from '@pankod/refine-antd'
-import { IInvoice } from 'interfaces'
+import { IRepairRequest } from 'interfaces'
 
-export const InvoiceList: React.FC<IResourceComponentsProps> = () => {
+export const RepairRequestList: React.FC<IResourceComponentsProps> = () => {
   const t = useTranslate()
 
-  const { tableProps, sorter } = useTable<IInvoice>({
+  const { tableProps, sorter } = useTable<IRepairRequest>({
     initialSorter: [
       {
         field: 'id',
@@ -77,7 +77,7 @@ export const InvoiceList: React.FC<IResourceComponentsProps> = () => {
           sorter
         />
 
-        <Table.Column<IInvoice>
+        <Table.Column<IRepairRequest>
           title={t('table.actions')}
           dataIndex="actions"
           render={(_, record) => (

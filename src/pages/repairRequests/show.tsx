@@ -6,14 +6,14 @@ import {
 } from '@pankod/refine-core'
 import { Show, Typography, Tag, MarkdownField } from '@pankod/refine-antd'
 
-import { IInvoice } from 'interfaces'
+import { IRepairRequest } from 'interfaces'
 
 const { Title, Text } = Typography
 
-export const InvoiceShow: React.FC<IResourceComponentsProps> = () => {
+export const RepairRequestShow: React.FC<IResourceComponentsProps> = () => {
   const t = useTranslate()
 
-  const { queryResult } = useShow<IInvoice>()
+  const { queryResult } = useShow<IRepairRequest>()
   const { data, isLoading } = queryResult
   const record = data?.data
 

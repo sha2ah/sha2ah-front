@@ -13,14 +13,14 @@ import ReactMde from 'react-mde'
 
 import 'react-mde/lib/styles/css/react-mde-all.css'
 
-import { IInvoice } from 'interfaces'
+import { IRepairRequest } from 'interfaces'
 
-export const InvoiceEdit: React.FC<IResourceComponentsProps> = () => {
+export const RepairRequestEdit: React.FC<IResourceComponentsProps> = () => {
   const [selectedTab, setSelectedTab] = useState<'write' | 'preview'>('write')
 
   const t = useTranslate()
 
-  const { formProps, saveButtonProps, queryResult } = useForm<IInvoice>()
+  const { formProps, saveButtonProps, queryResult } = useForm<IRepairRequest>()
 
   // const { selectProps: categorySelectProps } = useSelect<IRenter>({
   //   resource: "categories",
