@@ -18,6 +18,12 @@ import {
   ContractShow,
 } from 'pages/contracts'
 import {
+  InvoiceList,
+  InvoiceCreate,
+  InvoiceEdit,
+  InvoiceShow,
+} from 'pages/invoices'
+import {
   Title,
   Header,
   Sider,
@@ -138,6 +144,13 @@ function App() {
           create: ContractCreate,
           edit: ContractEdit,
           show: ContractShow,
+        },
+        {
+          name: 'invoices',
+          list: InvoiceList,
+          create: InvoiceCreate,
+          edit: InvoiceEdit,
+          show: InvoiceShow,
         },
       ]}
       Title={Title}
