@@ -32,6 +32,14 @@ export interface IEstate {
   createdAt: string;
 }
 
+export interface IUnit {
+  id: string;
+  code: string;
+  type: string;
+  status: string;
+  details?: string;
+}
+
 export interface IWallet {
   id: string;
   totalRecieved: number;

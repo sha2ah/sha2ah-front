@@ -20,6 +20,7 @@ import {
   EstateEdit,
   EstateShow,
 } from "pages/estates";
+import { UnitList, UnitCreate, UnitEdit, UnitShow } from "pages/units";
 import {
   Title,
   Header,
@@ -127,6 +128,13 @@ function App() {
           create: EstateCreate,
           edit: EstateEdit,
           show: EstateShow,
+        },
+        {
+          name: "units",
+          list: UnitList,
+          create: UnitCreate,
+          edit: UnitEdit,
+          show: UnitShow,
         },
       ]}
       Title={Title}
