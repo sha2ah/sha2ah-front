@@ -21,7 +21,7 @@ import {
 } from '@pankod/refine-antd'
 import { IInvoice } from 'interfaces'
 
-export const ContractList: React.FC<IResourceComponentsProps> = () => {
+export const InvoiceList: React.FC<IResourceComponentsProps> = () => {
   const t = useTranslate()
 
   const { tableProps, sorter } = useTable<IInvoice>({
