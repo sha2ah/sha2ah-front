@@ -12,6 +12,12 @@ import { RenterList, RenterCreate, RenterEdit, RenterShow } from 'pages/renters'
 import { EstateList, EstateCreate, EstateEdit, EstateShow } from 'pages/estates'
 import { UnitList, UnitCreate, UnitEdit, UnitShow } from 'pages/units'
 import {
+  ContractList,
+  ContractCreate,
+  ContractEdit,
+  ContractShow,
+} from 'pages/contracts'
+import {
   Title,
   Header,
   Sider,
@@ -125,6 +131,13 @@ function App() {
           create: UnitCreate,
           edit: UnitEdit,
           show: UnitShow,
+        },
+        {
+          name: 'contracts',
+          list: ContractList,
+          create: ContractCreate,
+          edit: ContractEdit,
+          show: ContractShow,
         },
       ]}
       Title={Title}
