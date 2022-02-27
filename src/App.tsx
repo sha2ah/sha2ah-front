@@ -24,6 +24,12 @@ import {
   InvoiceShow,
 } from 'pages/invoices'
 import {
+  RepairRequestList,
+  RepairRequestCreate,
+  RepairRequestEdit,
+  RepairRequestShow,
+} from 'pages/repairRequests'
+import {
   Title,
   Header,
   Sider,
@@ -151,6 +157,13 @@ function App() {
           create: InvoiceCreate,
           edit: InvoiceEdit,
           show: InvoiceShow,
+        },
+        {
+          name: 'repair-request',
+          list: RepairRequestList,
+          create: RepairRequestCreate,
+          edit: RepairRequestEdit,
+          show: RepairRequestShow,
         },
       ]}
       Title={Title}
