@@ -42,6 +42,7 @@ export interface IUnit {
 
 export interface IContract {
   id: string
+  title: string
   type: string
   status: string
   validity: string
