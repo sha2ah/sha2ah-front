@@ -50,6 +50,24 @@ export interface IContract {
   details?: string
 }
 
+export interface IInvoice {
+  id: string
+  title: string
+  type: string
+  status: string
+  date: string
+  details?: string
+}
+
+export interface IRepairRequest {
+  id: string
+  title: string
+  type: string
+  status: string
+  date: string
+  details?: string
+}
+
 export interface IWallet {
   id: string
   totalRecieved: number
