@@ -24,7 +24,7 @@ import { IEstate } from "interfaces";
 export const EstateList: React.FC<IResourceComponentsProps> = () => {
   const t = useTranslate();
 
-  const { tableProps, sorter } = useTable<IEstate>({
+  const { tableProps } = useTable<IEstate>({
     initialSorter: [
       {
         field: "id",
@@ -41,48 +41,48 @@ export const EstateList: React.FC<IResourceComponentsProps> = () => {
           key="id"
           title="ID"
           render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder("id", sorter)}
-          sorter
+          defaultSortOrder={getDefaultSortOrder("id")}
+      
         />
         <Table.Column
           dataIndex="name"
           key="name"
           title="Name"
           render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder("name", sorter)}
-          sorter
+          defaultSortOrder={getDefaultSortOrder("name")}
+      
         />
         <Table.Column
           dataIndex="type"
           key="type"
           title="Type"
           render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder("type", sorter)}
-          sorter
+          defaultSortOrder={getDefaultSortOrder("type")}
+      
         />
         <Table.Column
           dataIndex="status"
           key="status"
           title="Status"
           render={(value) => <TagField value={value} />}
-          defaultSortOrder={getDefaultSortOrder("status", sorter)}
-          sorter
+          defaultSortOrder={getDefaultSortOrder("status")}
+      
         />
         <Table.Column
           dataIndex="floorsNum"
           key="floorsNum"
           title="Number of Floors"
           render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder("floorsNum", sorter)}
-          sorter
+          defaultSortOrder={getDefaultSortOrder("floorsNum")}
+      
         />
         <Table.Column
           dataIndex="unitsPerFloor"
           key="unitsPerFloor"
           title="Units per Floor"
           render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder("unitsPerFloor", sorter)}
-          sorter
+          defaultSortOrder={getDefaultSortOrder("unitsPerFloor")}
+      
         />
 
         <Table.Column<IEstate>
