@@ -1,4 +1,5 @@
 # easyrent
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8c8f278c-71f0-4d93-9ec5-5301c6de2f66/deploy-status)](https://app.netlify.com/sites/easyrent-client/deploys)
 
 
 This project was generated with [superplate](https://github.com/pankod/superplate).
