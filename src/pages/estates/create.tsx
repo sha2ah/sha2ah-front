@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useTranslate, IResourceComponentsProps } from "@pankod/refine-core";
+import { useState } from 'react'
+import { useTranslate, IResourceComponentsProps } from '@pankod/refine-core'
 import {
   Create,
   Form,
@@ -7,21 +7,21 @@ import {
   Select,
   useSelect,
   useForm,
-} from "@pankod/refine-antd";
+} from '@pankod/refine-antd'
 
-import ReactMarkdown from "react-markdown";
-import ReactMde from "react-mde";
+import ReactMarkdown from 'react-markdown'
+import ReactMde from 'react-mde'
 
-import "react-mde/lib/styles/css/react-mde-all.css";
+import 'react-mde/lib/styles/css/react-mde-all.css'
 
-import { IRenter } from "interfaces";
+import { IRenter } from 'interfaces'
 
 export const EstateCreate: React.FC<IResourceComponentsProps> = () => {
-  const [selectedTab, setSelectedTab] = useState<"write" | "preview">("write");
+  const [selectedTab, setSelectedTab] = useState<'write' | 'preview'>('write')
 
-  const t = useTranslate();
+  const t = useTranslate()
 
-  const { formProps, saveButtonProps } = useForm<IRenter>();
+  const { formProps, saveButtonProps } = useForm<IRenter>()
 
   // const { selectProps: categorySelectProps } = useSelect<ICategory>({
   //   resource: "categories",
@@ -50,33 +50,22 @@ export const EstateCreate: React.FC<IResourceComponentsProps> = () => {
             },
           ]}
         >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          label="Status"
-          name="status"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
           <Select
             options={[
               {
-                label: "Active",
-                value: "active",
+                label: 'Active',
+                value: 'active',
               },
               {
-                label: "Draft",
-                value: "draft",
+                label: 'Draft',
+                value: 'draft',
               },
             ]}
           />
         </Form.Item>
         <Form.Item
           label="Number of Floors"
-          name="floorsNum"
+          name="number_of_floors"
           rules={[
             {
               required: true,
@@ -87,7 +76,7 @@ export const EstateCreate: React.FC<IResourceComponentsProps> = () => {
         </Form.Item>
         <Form.Item
           label="Units per Floor"
-          name="unitsPerFloor"
+          name="units_per_floor"
           rules={[
             {
               required: true,
@@ -108,16 +97,7 @@ export const EstateCreate: React.FC<IResourceComponentsProps> = () => {
         >
           <Select {...categorySelectProps} />
         </Form.Item> */}
-        <Form.Item label="Details" name="details">
-          <ReactMde
-            selectedTab={selectedTab}
-            onTabChange={setSelectedTab}
-            generateMarkdownPreview={(markdown) =>
-              Promise.resolve(<ReactMarkdown>{markdown}</ReactMarkdown>)
-            }
-          />
-        </Form.Item>
       </Form>
     </Create>
-  );
-};
+  )
+}
