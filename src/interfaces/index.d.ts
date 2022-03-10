@@ -22,14 +22,11 @@ export interface IRenter {
 }
 
 export interface IEstate {
-  id: string
+  id?: string
   name: string
-  type: string
-  status: string
-  floorsNum: number
-  unitsPerFloor: number
-  details?: string
-  createdAt: string
+  estate_type: string
+  number_of_floors: number
+  units_per_floor: number
 }
 
 export interface IUnit {
