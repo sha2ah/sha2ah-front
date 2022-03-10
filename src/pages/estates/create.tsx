@@ -43,7 +43,7 @@ export const EstateCreate: React.FC<IResourceComponentsProps> = () => {
         </Form.Item>
         <Form.Item
           label="Type"
-          name="type"
+          name="estate_type"
           rules={[
             {
               required: true,
