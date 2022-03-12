@@ -121,13 +121,7 @@ function App() {
       LoginPage={Login}
 
       resources={[
-        {
-          name: 'posts',
-          list: PostList,
-          create: PostCreate,
-          edit: PostEdit,
-          show: PostShow,
-        },
+
         {
           name: 'renters',
           list: RenterList,
