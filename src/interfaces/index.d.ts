@@ -30,12 +30,11 @@ export interface IEstate {
 }
 
 export interface IUnit {
-  id?: string
-  name: string
-  phone: string
-  floor: string
-  number: string
-  estate: string
+  id: string
+  code: string
+  type: string
+  status: string
+  details?: string
 }
 
 export interface IContract {

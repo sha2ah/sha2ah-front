@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useTranslate, IResourceComponentsProps } from '@pankod/refine-core'
+import { useState } from "react";
+import { useTranslate, IResourceComponentsProps } from "@pankod/refine-core";
 import {
   Edit,
   Form,
@@ -7,20 +7,20 @@ import {
   Select,
   useForm,
   useSelect,
-} from '@pankod/refine-antd'
-import ReactMarkdown from 'react-markdown'
-import ReactMde from 'react-mde'
+} from "@pankod/refine-antd";
+import ReactMarkdown from "react-markdown";
+import ReactMde from "react-mde";
 
-import 'react-mde/lib/styles/css/react-mde-all.css'
+import "react-mde/lib/styles/css/react-mde-all.css";
 
-import { IRenter } from 'interfaces'
+import { IRenter } from "interfaces";
 
 export const UnitEdit: React.FC<IResourceComponentsProps> = () => {
-  const [selectedTab, setSelectedTab] = useState<'write' | 'preview'>('write')
+  const [selectedTab, setSelectedTab] = useState<"write" | "preview">("write");
 
-  const t = useTranslate()
+  const t = useTranslate();
 
-  const { formProps, saveButtonProps, queryResult } = useForm<IRenter>()
+  const { formProps, saveButtonProps, queryResult } = useForm<IRenter>();
 
   // const { selectProps: categorySelectProps } = useSelect<IRenter>({
   //   resource: "categories",
@@ -31,8 +31,8 @@ export const UnitEdit: React.FC<IResourceComponentsProps> = () => {
     <Edit saveButtonProps={saveButtonProps}>
       <Form {...formProps} layout="vertical">
         <Form.Item
-          label="Name"
-          name="name"
+          label="Code"
+          name="code"
           rules={[
             {
               required: true,
@@ -42,19 +42,8 @@ export const UnitEdit: React.FC<IResourceComponentsProps> = () => {
           <Input />
         </Form.Item>
         <Form.Item
-          label="Phone"
-          name="phone"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          label="Estate"
-          name="estate"
+          label="Type"
+          name="type"
           rules={[
             {
               required: true,
@@ -64,37 +53,37 @@ export const UnitEdit: React.FC<IResourceComponentsProps> = () => {
           <Select
             options={[
               {
-                label: 'Active',
-                value: 'active',
+                label: "Active",
+                value: "active",
               },
               {
-                label: 'Draft',
-                value: 'draft',
+                label: "Draft",
+                value: "draft",
               },
             ]}
           />
         </Form.Item>
         <Form.Item
-          label="Floor"
-          name="floor"
+          label="Status"
+          name="status"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          label="Number"
-          name="number"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Input />
+          <Select
+            options={[
+              {
+                label: "Active",
+                value: "active",
+              },
+              {
+                label: "Draft",
+                value: "draft",
+              },
+            ]}
+          />
         </Form.Item>
 
         {/* <Form.Item
@@ -108,7 +97,16 @@ export const UnitEdit: React.FC<IResourceComponentsProps> = () => {
         >
           <Select {...categorySelectProps} />
         </Form.Item> */}
+        <Form.Item label="Details" name="details">
+          <ReactMde
+            selectedTab={selectedTab}
+            onTabChange={setSelectedTab}
+            generateMarkdownPreview={(markdown) =>
+              Promise.resolve(<ReactMarkdown>{markdown}</ReactMarkdown>)
+            }
+          />
+        </Form.Item>
       </Form>
     </Edit>
-  )
-}
+  );
+};
