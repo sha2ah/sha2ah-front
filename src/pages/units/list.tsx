@@ -2,7 +2,7 @@ import {
   useTranslate,
   IResourceComponentsProps,
   useMany,
-} from '@pankod/refine-core'
+} from "@pankod/refine-core";
 import {
   List,
   Table,
@@ -18,20 +18,20 @@ import {
   FilterDropdown,
   Select,
   ShowButton,
-} from '@pankod/refine-antd'
-import { IUnit } from 'interfaces'
+} from "@pankod/refine-antd";
+import { IUnit } from "interfaces";
 
 export const UnitList: React.FC<IResourceComponentsProps> = () => {
-  const t = useTranslate()
+  const t = useTranslate();
 
   const { tableProps, sorter } = useTable<IUnit>({
     initialSorter: [
       {
-        field: 'id',
-        order: 'desc',
+        field: "id",
+        order: "desc",
       },
     ],
-  })
+  });
 
   return (
     <List>
@@ -41,52 +41,36 @@ export const UnitList: React.FC<IResourceComponentsProps> = () => {
           key="id"
           title="ID"
           render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder('id', sorter)}
+          defaultSortOrder={getDefaultSortOrder("id", sorter)}
           sorter
         />
         <Table.Column
-          dataIndex="name"
-          key="name"
-          title="Name"
+          dataIndex="code"
+          key="code"
+          title="Code"
           render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder('name', sorter)}
+          defaultSortOrder={getDefaultSortOrder("code", sorter)}
           sorter
         />
         <Table.Column
-          dataIndex="phone"
-          key="phone"
-          title="Phone"
-          render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder('phone', sorter)}
+          dataIndex="type"
+          key="type"
+          title="Type"
+          render={(value) => <TagField value={value} />}
+          defaultSortOrder={getDefaultSortOrder("type", sorter)}
           sorter
         />
         <Table.Column
-          dataIndex="estate"
-          key="estate"
-          title="Estate"
-          render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder('estate', sorter)}
-          sorter
-        />
-        <Table.Column
-          dataIndex="floor"
-          key="floor"
-          title="Floor"
-          render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder('floor', sorter)}
-          sorter
-        />
-        <Table.Column
-          dataIndex="number"
-          key="number"
-          title="Number"
-          render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder('number', sorter)}
+          dataIndex="status"
+          key="status"
+          title="Status"
+          render={(value) => <TagField value={value} />}
+          defaultSortOrder={getDefaultSortOrder("status", sorter)}
           sorter
         />
 
         <Table.Column<IUnit>
-          title={t('table.actions')}
+          title={t("table.actions")}
           dataIndex="actions"
           render={(_, record) => (
             <Space>
@@ -98,5 +82,5 @@ export const UnitList: React.FC<IResourceComponentsProps> = () => {
         />
       </Table>
     </List>
-  )
-}
+  );
+};
