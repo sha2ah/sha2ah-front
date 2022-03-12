@@ -6,13 +6,14 @@ import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import "./i18n";
 
+
 ReactDOM.render(
   <React.StrictMode>
     <React.Suspense fallback="loading">
       <Auth0Provider
         domain="dev-y10hpogc.us.auth0.com"
         clientId="H4myyWJctGyTkajtEMvKLgQfg2jY8Myn"
-        redirectUri={"https://sha2ah.com/estates"}
+        redirectUri={"http://localhost:3000/estates"}
       > 
         <App />
       </Auth0Provider>

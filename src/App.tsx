@@ -58,7 +58,7 @@ function App() {
       return Promise.resolve();
     },
     logout: () => {
-      logout({ returnTo: "https://sha2ah.com" });
+      logout({ returnTo: "window.location.origin" });
       return Promise.resolve("/");
     },
     checkError: () => Promise.resolve(),
