@@ -42,56 +42,56 @@ import { useTranslation } from 'react-i18next'
 const { RouterComponent } = routerProvider
 
 function App() {
-  // const {
-  //   getIdTokenClaims,
-  //   isLoading,
-  //   loginWithRedirect,
-  //   isAuthenticated,
-  //   user,
-  //   logout,
-  // } = useAuth0();
+  const {
+    getIdTokenClaims,
+    isLoading,
+    loginWithRedirect,
+    isAuthenticated,
+    user,
+    logout,
+  } = useAuth0();
   const { t, i18n } = useTranslation()
 
-  // const authProvider: AuthProvider = {
-  //   login: () => {
-  //     loginWithRedirect();
-  //     return Promise.resolve();
-  //   },
-  //   logout: () => {
-  //     logout({ returnTo: window.location.origin });
-  //     return Promise.resolve("/");
-  //   },
-  //   checkError: () => Promise.resolve(),
-  //   checkAuth: () => {
-  //     if (isAuthenticated) {
-  //       return Promise.resolve();
-  //     }
+  const authProvider: AuthProvider = {
+    login: () => {
+      loginWithRedirect();
+      return Promise.resolve();
+    },
+    logout: () => {
+      logout({ returnTo: "https://sha2ah.com" });
+      return Promise.resolve("/");
+    },
+    checkError: () => Promise.resolve(),
+    checkAuth: () => {
+      if (isAuthenticated) {
+        return Promise.resolve();
+      }
 
-  //     return Promise.reject();
-  //   },
-  //   getPermissions: () => Promise.resolve(),
-  //   getUserIdentity: async () => {
-  //     if (user) {
-  //       return Promise.resolve({
-  //         ...user,
-  //         avatar: user.picture,
-  //       });
-  //     }
-  //     return Promise.reject();
-  //   },
-  // };
+      return Promise.reject();
+    },
+    getPermissions: () => Promise.resolve(),
+    getUserIdentity: async () => {
+      if (user) {
+        return Promise.resolve({
+          ...user,
+          avatar: user.picture,
+        });
+      }
+      return Promise.reject();
+    },
+  };
 
-  // getIdTokenClaims().then((token) => {
-  //   if (token) {
-  //     axios.defaults.headers.common = {
-  //       Authorization: `Bearer ${token.__raw}`,
-  //     };
-  //   }
-  // });
+  getIdTokenClaims().then((token) => {
+    if (token) {
+      axios.defaults.headers.common = {
+        Authorization: `Bearer ${token.__raw}`,
+      };
+    }
+  });
 
-  // if (isLoading) {
-  //   return <span>Loading...</span>;
-  // }
+  if (isLoading) {
+    return <span>Loading...</span>;
+  }
 
   const i18nProvider = {
     translate: (key: string, params: object) => t(key, params),
@@ -117,8 +117,8 @@ function App() {
       }}
       notificationProvider={notificationProvider}
       dataProvider={dataProvider('https://guarded-scrubland-74784.herokuapp.com')}
-      // authProvider={authProvider}
-      // LoginPage={Login}
+      authProvider={authProvider}
+      LoginPage={Login}
 
       resources={[
         {
