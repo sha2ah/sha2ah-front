@@ -3,19 +3,19 @@ import {
   IResourceComponentsProps,
   useOne,
   useShow,
-} from "@pankod/refine-core";
-import { Show, Typography, Tag, MarkdownField } from "@pankod/refine-antd";
+} from '@pankod/refine-core'
+import { Show, Typography, Tag, MarkdownField } from '@pankod/refine-antd'
 
-import { IEstate } from "interfaces";
+import { IEstate } from 'interfaces'
 
-const { Title, Text } = Typography;
+const { Title, Text } = Typography
 
 export const EstateShow: React.FC<IResourceComponentsProps> = () => {
-  const t = useTranslate();
+  const t = useTranslate()
 
-  const { queryResult } = useShow<IEstate>();
-  const { data, isLoading } = queryResult;
-  const record = data?.data;
+  const { queryResult } = useShow<IEstate>()
+  const { data, isLoading } = queryResult
+  const record = data?.data
 
   return (
     <Show isLoading={isLoading}>
@@ -24,22 +24,14 @@ export const EstateShow: React.FC<IResourceComponentsProps> = () => {
 
       <Title level={5}>Type</Title>
       <Text>
-        <Tag>{record?.type}</Tag>
-      </Text>
-
-      <Title level={5}>Status</Title>
-      <Text>
-        <Tag>{record?.status}</Tag>
+        <Tag>{record?.estate_type}</Tag>
       </Text>
 
       <Title level={5}>Number of Floors</Title>
-      <Text>{record?.floorsNum}</Text>
+      <Text>{record?.number_of_floors}</Text>
 
       <Title level={5}>Units per Floor</Title>
-      <Text>{record?.unitsPerFloor}</Text>
-
-      <Title level={5}>Details</Title>
-      <MarkdownField value={record?.details} />
+      <Text>{record?.units_per_floor}</Text>
     </Show>
-  );
-};
+  )
+}

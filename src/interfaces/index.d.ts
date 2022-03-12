@@ -22,22 +22,20 @@ export interface IRenter {
 }
 
 export interface IEstate {
-  id: string
+  id?: string
   name: string
-  type: string
-  status: string
-  floorsNum: number
-  unitsPerFloor: number
-  details?: string
-  createdAt: string
+  estate_type: string
+  number_of_floors: number
+  units_per_floor: number
 }
 
 export interface IUnit {
-  id: string
-  code: string
-  type: string
-  status: string
-  details?: string
+  id?: string
+  name: string
+  phone: string
+  floor: string
+  number: string
+  estate: string
 }
 
 export interface IContract {
