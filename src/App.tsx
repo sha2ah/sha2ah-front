@@ -6,7 +6,7 @@ import dataProvider from '@pankod/refine-simple-rest'
 import axios from 'axios'
 import { useAuth0 } from '@auth0/auth0-react'
 import { Home } from './pages/home.server'
-import {NotFound} from './pages/notfound'
+import { NotFound } from './pages/notfound'
 import { Login } from 'pages/login'
 import { PostList, PostCreate, PostEdit, PostShow } from 'pages/posts'
 import { RenterList, RenterCreate, RenterEdit, RenterShow } from 'pages/renters'
@@ -116,7 +116,9 @@ function App() {
         ],
       }}
       notificationProvider={notificationProvider}
-      dataProvider={dataProvider('https://guarded-scrubland-74784.herokuapp.com')}
+      dataProvider={dataProvider(
+        'https://guarded-scrubland-74784.herokuapp.com'
+      )}
       // authProvider={authProvider}
       // LoginPage={Login}
 
