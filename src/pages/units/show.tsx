@@ -3,37 +3,44 @@ import {
   IResourceComponentsProps,
   useOne,
   useShow,
-} from "@pankod/refine-core";
-import { Show, Typography, Tag, MarkdownField } from "@pankod/refine-antd";
+} from '@pankod/refine-core'
+import { Show, Typography, Tag, MarkdownField } from '@pankod/refine-antd'
 
-import { IUnit } from "interfaces";
+import { IUnit } from 'interfaces'
 
-const { Title, Text } = Typography;
+const { Title, Text } = Typography
 
 export const UnitShow: React.FC<IResourceComponentsProps> = () => {
-  const t = useTranslate();
+  const t = useTranslate()
 
-  const { queryResult } = useShow<IUnit>();
-  const { data, isLoading } = queryResult;
-  const record = data?.data;
+  const { queryResult } = useShow<IUnit>()
+  const { data, isLoading } = queryResult
+  const record = data?.data
 
   return (
     <Show isLoading={isLoading}>
-      <Title level={5}>Code</Title>
-      <Text>{record?.code}</Text>
+      <Title level={5}>Name</Title>
+      <Text>{record?.name}</Text>
 
-      <Title level={5}>Type</Title>
+      <Title level={5}>Phone</Title>
       <Text>
-        <Tag>{record?.type}</Tag>
+        <Text>{record?.phone}</Text>
       </Text>
 
-      <Title level={5}>Status</Title>
+      <Title level={5}>Estate</Title>
       <Text>
-        <Tag>{record?.status}</Tag>
+        <Text>{record?.estate}</Text>
       </Text>
 
-      <Title level={5}>Details</Title>
-      <MarkdownField value={record?.details} />
+      <Title level={5}>Floor</Title>
+      <Text>
+        <Text>{record?.floor}</Text>
+      </Text>
+
+      <Title level={5}>Number</Title>
+      <Text>
+        <Text>{record?.number}</Text>
+      </Text>
     </Show>
-  );
-};
+  )
+}
