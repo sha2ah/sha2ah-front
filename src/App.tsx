@@ -83,12 +83,14 @@ function App() {
 
   getIdTokenClaims().then((token) => {
     if (token) {
+      console.log("here")
       axios.defaults.headers.common = {
         Authorization: `Bearer ${token.__raw}`,
       };
     }
   });
-
+  
+  console.log(dataProvider)
   if (isLoading) {
     return <span>Loading...</span>;
   }
@@ -116,7 +118,7 @@ function App() {
         ],
       }}
       notificationProvider={notificationProvider}
-      dataProvider={dataProvider('https://guarded-scrubland-74784.herokuapp.com')}
+      dataProvider={dataProvider('https://guarded-scrubland-74784.herokuapp.com' ,axios)}
       authProvider={authProvider}
       LoginPage={Login}
 
