@@ -83,9 +83,9 @@ function App() {
 
   getIdTokenClaims().then((token) => {
     if (token) {
-      console.log("here")
+      console.log(token)
       axios.defaults.headers.common = {
-        Authorization: `Bearer ${token.__raw}`,
+        Authorization: token,
       };
     }
   });
