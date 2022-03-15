@@ -2,11 +2,13 @@ import { Refine, AuthProvider } from '@pankod/refine-core'
 import { notificationProvider } from '@pankod/refine-antd'
 import routerProvider from '@pankod/refine-react-router'
 import 'styles/antd.less'
+import './styles/bootstrap.min.css'
+import './styles/style.scss'
 import dataProvider from '@pankod/refine-simple-rest'
 import axios from 'axios'
 import { useAuth0 } from '@auth0/auth0-react'
 import { Home } from './pages/home.server'
-import {NotFound} from './pages/notfound'
+import { NotFound } from './pages/notfound'
 import { Login } from 'pages/login'
 import { PostList, PostCreate, PostEdit, PostShow } from 'pages/posts'
 import { RenterList, RenterCreate, RenterEdit, RenterShow } from 'pages/renters'
@@ -49,51 +51,51 @@ function App() {
     isAuthenticated,
     user,
     logout,
-  } = useAuth0();
+  } = useAuth0()
   const { t, i18n } = useTranslation()
 
-  const authProvider: AuthProvider = {
-    login: () => {
-      loginWithRedirect();
-      return Promise.resolve();
-    },
-    logout: () => {
-      logout({ returnTo: "window.location.origin" });
-      return Promise.resolve("/");
-    },
-    checkError: () => Promise.resolve(),
-    checkAuth: () => {
-      if (isAuthenticated) {
-        return Promise.resolve();
-      }
+  // const authProvider: AuthProvider = {
+  //   login: () => {
+  //     loginWithRedirect();
+  //     return Promise.resolve();
+  //   },
+  //   logout: () => {
+  //     logout({ returnTo: "window.location.origin" });
+  //     return Promise.resolve("/");
+  //   },
+  //   checkError: () => Promise.resolve(),
+  //   checkAuth: () => {
+  //     if (isAuthenticated) {
+  //       return Promise.resolve();
+  //     }
 
-      return Promise.reject();
-    },
-    getPermissions: () => Promise.resolve(),
-    getUserIdentity: async () => {
-      if (user) {
-        return Promise.resolve({
-          ...user,
-          avatar: user.picture,
-        });
-      }
-      return Promise.reject();
-    },
-  };
+  //     return Promise.reject();
+  //   },
+  //   getPermissions: () => Promise.resolve(),
+  //   getUserIdentity: async () => {
+  //     if (user) {
+  //       return Promise.resolve({
+  //         ...user,
+  //         avatar: user.picture,
+  //       });
+  //     }
+  //     return Promise.reject();
+  //   },
+  // };
 
-  getIdTokenClaims().then((token) => {
-    if (token) {
-      console.log(token)
-      axios.defaults.headers.common = {
-        Authorization: token,
-      };
-    }
-  });
-  
+  // getIdTokenClaims().then((token) => {
+  //   if (token) {
+  //     console.log(token)
+  //     axios.defaults.headers.common = {
+  //       Authorization: token,
+  //     };
+  //   }
+  // });
+
   console.log(dataProvider)
-  if (isLoading) {
-    return <span>Loading...</span>;
-  }
+  // if (isLoading) {
+  //   return <span>Loading...</span>
+  // }
 
   const i18nProvider = {
     translate: (key: string, params: object) => t(key, params),
@@ -118,12 +120,13 @@ function App() {
         ],
       }}
       notificationProvider={notificationProvider}
-      dataProvider={dataProvider('https://guarded-scrubland-74784.herokuapp.com' ,axios)}
-      authProvider={authProvider}
+      dataProvider={dataProvider(
+        'https://guarded-scrubland-74784.herokuapp.com',
+        axios
+      )}
+      // authProvider={authProvider}
       LoginPage={Login}
-
       resources={[
-
         {
           name: 'renters',
           list: RenterList,
@@ -170,7 +173,7 @@ function App() {
       Title={Title}
       Header={Header}
       Sider={Sider}
-      Footer={Footer}
+      // Footer={Footer}
       Layout={Layout}
       OffLayoutArea={OffLayoutArea}
       i18nProvider={i18nProvider}
