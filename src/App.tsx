@@ -50,7 +50,7 @@ function App() {
   const authProvider: AuthProvider = {
     login: ({ username, password, remember }) => {
       const token = axios
-        .post('http://127.0.0.1:8000/api/token/', {
+        .post('https://guarded-scrubland-74784.herokuapp.com/api/token/', {
           username: username,
           password: password,
         })
