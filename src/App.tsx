@@ -2,6 +2,8 @@ import { Refine, AuthProvider } from '@pankod/refine-core'
 import { notificationProvider } from '@pankod/refine-antd'
 import routerProvider from '@pankod/refine-react-router'
 import 'styles/antd.less'
+import './styles/bootstrap.min.css'
+import './styles/style.scss'
 import dataProvider from '@pankod/refine-simple-rest'
 import axios from 'axios'
 import { useAuth0 } from '@auth0/auth0-react'
@@ -56,7 +58,6 @@ function App() {
         })
         .then((response) => {
           localStorage.setItem('token', response.data.access)
-          
         })
         .catch()
         .finally(() => {})
@@ -84,7 +85,7 @@ function App() {
     changeLocale: (lang: string) => i18n.changeLanguage(lang),
     getLocale: () => i18n.language,
   }
-  
+
   const CustomRouterComponent = () => <RouterComponent basename="/admin" />
   return (
     <Refine
@@ -156,7 +157,7 @@ function App() {
       Title={Title}
       Header={Header}
       Sider={Sider}
-      Footer={Footer}
+      // Footer={Footer}
       Layout={Layout}
       OffLayoutArea={OffLayoutArea}
       i18nProvider={i18nProvider}
