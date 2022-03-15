@@ -6,7 +6,7 @@ import './styles/bootstrap.min.css'
 import './styles/style.scss'
 import dataProvider from '@pankod/refine-simple-rest'
 import axios from 'axios'
-import { useAuth0 } from '@auth0/auth0-react'
+
 import { Home } from './pages/home.server'
 import { NotFound } from './pages/notfound'
 import { Login } from 'pages/login'
@@ -47,39 +47,36 @@ const { RouterComponent } = routerProvider
 
 function App() {
   const { t, i18n } = useTranslation()
-  const [auth, setAuth] = useState(false)
-  const [isLoading, setLoading] = useState(true)
+
   const authProvider: AuthProvider = {
-    login: ({ username, password, remember }) => {
-      const token = axios
+    login: async ({ username, password, remember }) => {
+      const token = await axios
         .post('https://guarded-scrubland-74784.herokuapp.com/api/token/', {
           username: username,
           password: password,
         })
         .then((response) => {
-          localStorage.setItem('token', response.data.access)
+          sessionStorage.setItem('token', response.data.access)
+          return Promise.resolve('/estates')
         })
-        .catch()
+        .catch(() => Promise.reject())
         .finally(() => {})
-      return Promise.race([token])
+      return token
     },
 
     logout: () => {
-      localStorage.removeItem('token')
+      sessionStorage.removeItem('token')
       return Promise.resolve()
     },
     checkError: () => Promise.resolve(),
     checkAuth: () =>
-      localStorage.getItem('token')
+      sessionStorage.getItem('token')
         ? Promise.resolve()
-        : Promise.reject({ redirectPath: '/custom-url' }),
+        : Promise.reject({ redirectPath: '/login' }),
 
     getPermissions: () => Promise.resolve(['consumer']),
   }
 
-  axios.defaults.headers.common = {
-    Authorization: `Bearer ${localStorage.getItem('token')}`,
-  }
   const i18nProvider = {
     translate: (key: string, params: object) => t(key, params),
     changeLocale: (lang: string) => i18n.changeLanguage(lang),
