@@ -4,7 +4,7 @@ import routerProvider from '@pankod/refine-react-router'
 import 'styles/antd.less'
 import dataProvider from '@pankod/refine-simple-rest'
 import axios from 'axios'
-import { useAuth0 } from '@auth0/auth0-react'
+
 import { Home } from './pages/home.server'
 import { NotFound } from './pages/notfound'
 import { Login } from 'pages/login'
@@ -76,9 +76,7 @@ function App() {
     getPermissions: () => Promise.resolve(['consumer']),
   }
 
-  axios.defaults.headers.common = {
-    Authorization: `Bearer ${sessionStorage.getItem('token')}`,
-  }
+  
   const i18nProvider = {
     translate: (key: string, params: object) => t(key, params),
     changeLocale: (lang: string) => i18n.changeLanguage(lang),

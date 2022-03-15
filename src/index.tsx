@@ -6,17 +6,16 @@ import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import "./i18n";
 
-
+import axios from 'axios'
+axios.defaults.headers.common = {
+    Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+  }
 ReactDOM.render(
   <React.StrictMode>
     <React.Suspense fallback="loading">
-      <Auth0Provider
-        domain="dev-y10hpogc.us.auth0.com"
-        clientId="H4myyWJctGyTkajtEMvKLgQfg2jY8Myn"
-        redirectUri={`${window.location.origin}/estates`}
-      > 
+    
         <App />
-      </Auth0Provider>
+     
     </React.Suspense>
   </React.StrictMode>,
   document.getElementById("root")
