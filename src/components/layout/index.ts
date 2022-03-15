@@ -1,6 +1,8 @@
-export { Header } from "./header";
-export { Footer } from "./footer";
-export { Sider } from "./sider";
-export { Layout } from "./layout";
-export { OffLayoutArea } from "./offLayoutArea";
-export { Title } from "./title";
+export { Header } from './header'
+export { Navbar } from './navbar'
+export { Footer } from './footer'
+export { Banner } from './banner'
+export { Sider } from './sider'
+export { Layout } from './layout'
+export { OffLayoutArea } from './offLayoutArea'
+export { Title } from './title'
