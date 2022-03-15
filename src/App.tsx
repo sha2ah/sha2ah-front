@@ -6,12 +6,14 @@ import dataProvider from '@pankod/refine-simple-rest'
 import axios from 'axios'
 import { useAuth0 } from '@auth0/auth0-react'
 import { Home } from './pages/home.server'
-import {NotFound} from './pages/notfound'
+import { NotFound } from './pages/notfound'
 import { Login } from 'pages/login'
 import { PostList, PostCreate, PostEdit, PostShow } from 'pages/posts'
 import { RenterList, RenterCreate, RenterEdit, RenterShow } from 'pages/renters'
 import { EstateList, EstateCreate, EstateEdit, EstateShow } from 'pages/estates'
 import { UnitList, UnitCreate, UnitEdit, UnitShow } from 'pages/units'
+import React, { useState } from 'react'
+
 import {
   ContractList,
   ContractCreate,
@@ -42,62 +44,47 @@ import { useTranslation } from 'react-i18next'
 const { RouterComponent } = routerProvider
 
 function App() {
-  const {
-    getIdTokenClaims,
-    isLoading,
-    loginWithRedirect,
-    isAuthenticated,
-    user,
-    logout,
-  } = useAuth0();
   const { t, i18n } = useTranslation()
-
+  const [auth, setAuth] = useState(false)
+  const [isLoading, setLoading] = useState(true)
   const authProvider: AuthProvider = {
-    login: () => {
-      loginWithRedirect();
-      return Promise.resolve();
+    login: ({ username, password, remember }) => {
+      const token = axios
+        .post('http://127.0.0.1:8000/api/token/', {
+          username: username,
+          password: password,
+        })
+        .then((response) => {
+          localStorage.setItem('token', response.data.access)
+          
+        })
+        .catch()
+        .finally(() => {})
+      return Promise.race([token])
     },
+
     logout: () => {
-      logout({ returnTo: "window.location.origin" });
-      return Promise.resolve("/");
+      localStorage.removeItem('token')
+      return Promise.resolve()
     },
     checkError: () => Promise.resolve(),
-    checkAuth: () => {
-      if (isAuthenticated) {
-        return Promise.resolve();
-      }
+    checkAuth: () =>
+      localStorage.getItem('token')
+        ? Promise.resolve()
+        : Promise.reject({ redirectPath: '/custom-url' }),
 
-      return Promise.reject();
-    },
-    getPermissions: () => Promise.resolve(),
-    getUserIdentity: async () => {
-      if (user) {
-        return Promise.resolve({
-          ...user,
-          avatar: user.picture,
-        });
-      }
-      return Promise.reject();
-    },
-  };
-
-  getIdTokenClaims().then((token) => {
-    if (token) {
-      axios.defaults.headers.common = {
-        Authorization: `Bearer ${token.__raw}`,
-      };
-    }
-  });
-
-  if (isLoading) {
-    return <span>Loading...</span>;
+    getPermissions: () => Promise.resolve(['consumer']),
   }
 
+  axios.defaults.headers.common = {
+    Authorization: `Bearer ${localStorage.getItem('token')}`,
+  }
   const i18nProvider = {
     translate: (key: string, params: object) => t(key, params),
     changeLocale: (lang: string) => i18n.changeLanguage(lang),
     getLocale: () => i18n.language,
   }
+  
   const CustomRouterComponent = () => <RouterComponent basename="/admin" />
   return (
     <Refine
@@ -116,12 +103,13 @@ function App() {
         ],
       }}
       notificationProvider={notificationProvider}
-      dataProvider={dataProvider('https://guarded-scrubland-74784.herokuapp.com')}
+      dataProvider={dataProvider(
+        'https://guarded-scrubland-74784.herokuapp.com',
+        axios
+      )}
       authProvider={authProvider}
       LoginPage={Login}
-
       resources={[
-
         {
           name: 'renters',
           list: RenterList,
