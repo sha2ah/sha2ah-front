@@ -48,19 +48,21 @@ function App() {
 
   const authProvider: AuthProvider = {
     login: async ({ username, password, remember }) => {
-      const token =await axios
+      const token = await axios
         .post('https://guarded-scrubland-74784.herokuapp.com/api/token/', {
           username: username,
           password: password,
         })
         .then((response) => {
           sessionStorage.setItem('token', response.data.access)
-          return Promise.resolve("/estates")
+          axios.defaults.headers.common = {
+            Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+          }
+          return Promise.resolve('/estates')
         })
         .catch(() => Promise.reject())
         .finally(() => {})
-        return token
-     
+      return token
     },
 
     logout: () => {
@@ -76,13 +78,12 @@ function App() {
     getPermissions: () => Promise.resolve(['consumer']),
   }
 
-  
   const i18nProvider = {
     translate: (key: string, params: object) => t(key, params),
     changeLocale: (lang: string) => i18n.changeLanguage(lang),
     getLocale: () => i18n.language,
   }
-  
+
   const CustomRouterComponent = () => <RouterComponent basename="/admin" />
   return (
     <Refine
