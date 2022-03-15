@@ -54,30 +54,30 @@ function App() {
           password: password,
         })
         .then((response) => {
-          localStorage.setItem('token', response.data.access)
+          sessionStorage.setItem('token', response.data.access)
           return Promise.resolve("/estates")
         })
         .catch(() => Promise.reject())
         .finally(() => {})
         return token
-      // return Promise.race([token])
+     
     },
 
     logout: () => {
-      localStorage.removeItem('token')
+      sessionStorage.removeItem('token')
       return Promise.resolve()
     },
     checkError: () => Promise.resolve(),
     checkAuth: () =>
-      localStorage.getItem('token')
+      sessionStorage.getItem('token')
         ? Promise.resolve()
-        : Promise.reject({ redirectPath: '/custom-url' }),
+        : Promise.reject({ redirectPath: '/login' }),
 
     getPermissions: () => Promise.resolve(['consumer']),
   }
 
   axios.defaults.headers.common = {
-    Authorization: `Bearer ${localStorage.getItem('token')}`,
+    Authorization: `Bearer ${sessionStorage.getItem('token')}`,
   }
   const i18nProvider = {
     translate: (key: string, params: object) => t(key, params),

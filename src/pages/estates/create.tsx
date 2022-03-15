@@ -53,12 +53,12 @@ export const EstateCreate: React.FC<IResourceComponentsProps> = () => {
           <Select
             options={[
               {
-                label: 'Active',
-                value: 'active',
+                label: 'Residential',
+                value: 1,
               },
               {
-                label: 'Draft',
-                value: 'draft',
+                label: 'Commercial',
+                value: 2,
               },
             ]}
           />
