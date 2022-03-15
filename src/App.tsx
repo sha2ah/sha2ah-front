@@ -45,22 +45,22 @@ const { RouterComponent } = routerProvider
 
 function App() {
   const { t, i18n } = useTranslation()
-  const [auth, setAuth] = useState(false)
-  const [isLoading, setLoading] = useState(true)
+
   const authProvider: AuthProvider = {
-    login: ({ username, password, remember }) => {
-      const token = axios
+    login: async ({ username, password, remember }) => {
+      const token =await axios
         .post('https://guarded-scrubland-74784.herokuapp.com/api/token/', {
           username: username,
           password: password,
         })
         .then((response) => {
           localStorage.setItem('token', response.data.access)
-          
+          return Promise.resolve("/estates")
         })
-        .catch()
+        .catch(() => Promise.reject())
         .finally(() => {})
-      return Promise.race([token])
+        return token
+      // return Promise.race([token])
     },
 
     logout: () => {
