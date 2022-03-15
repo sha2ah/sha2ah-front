@@ -2,6 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Auth0Provider } from '@auth0/auth0-react'
 
+import reportWebVitals from './reportWebVitals'
+import App from './App'
+import './i18n'
+
 import axios from 'axios'
 axios.defaults.headers.common = {
   Authorization: `Bearer ${sessionStorage.getItem('token')}`,
