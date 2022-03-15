@@ -1,11 +1,34 @@
 import { useTranslate } from '@pankod/refine-core'
-import { AntdLayout, Button } from '@pankod/refine-antd'
+import { Navbar, Footer, Banner } from '../components/layout/'
+import {
+  Hero,
+  About,
+  Services,
+  Team,
+  FAQ,
+  Pricing,
+  Contact,
+} from '../sections/home/'
 
 import { useAuth0 } from '@auth0/auth0-react'
-import { EstateList } from './estates'
 
 export const Home: React.FC = () => {
   const t = useTranslate()
-  window.location.href = "/estates";
-  return <EstateList></EstateList>
+
+  return (
+    <>
+      <Navbar />
+      <Hero />
+      <main id="main">
+        <About />
+        <Services />
+        <Banner />
+        {/* <Team /> */}
+        <FAQ />
+        <Pricing />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  )
 }

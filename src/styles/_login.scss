@@ -1,0 +1,40 @@
+#login {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .imageContainer {
+    margin-top: 80px;
+  }
+
+  .ant-card {
+    padding: 2rem 1rem;
+    margin: 0 0 3rem;
+    min-width: 400px;
+
+    h1 {
+      text-align: center;
+    }
+
+    .ant-btn {
+      margin-top: 1rem;
+      color: $white;
+      border-color: $main-clr;
+      background-color: $main-clr;
+
+      &:hover {
+        background-color: $l-blue;
+        border-color: $l-blue;
+      }
+    }
+
+    .ant-typography {
+      a {
+        color: $main-clr;
+      }
+    }
+  }
+}

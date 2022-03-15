@@ -2,6 +2,8 @@ import { Refine, AuthProvider } from '@pankod/refine-core'
 import { notificationProvider } from '@pankod/refine-antd'
 import routerProvider from '@pankod/refine-react-router'
 import 'styles/antd.less'
+import './styles/bootstrap.min.css'
+import './styles/style.scss'
 import dataProvider from '@pankod/refine-simple-rest'
 import axios from 'axios'
 
@@ -155,7 +157,7 @@ function App() {
       Title={Title}
       Header={Header}
       Sider={Sider}
-      Footer={Footer}
+      // Footer={Footer}
       Layout={Layout}
       OffLayoutArea={OffLayoutArea}
       i18nProvider={i18nProvider}
