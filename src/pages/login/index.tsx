@@ -28,7 +28,7 @@ export const Login: React.FC = () => {
 
   const CardTitle = (
     <Title level={1} className="title">
-      Welcome Back!
+      Welcome!
     </Title>
   )
 
