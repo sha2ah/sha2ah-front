@@ -57,6 +57,9 @@ function App() {
         })
         .then((response) => {
           sessionStorage.setItem('token', response.data.access)
+          axios.defaults.headers.common = {
+            Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+          }
           return Promise.resolve('/estates')
         })
         .catch(() => Promise.reject())
