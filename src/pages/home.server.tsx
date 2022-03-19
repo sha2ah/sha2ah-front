@@ -25,7 +25,7 @@ export const Home: React.FC = () => {
         <Banner />
         {/* <Team /> */}
         <FAQ />
-        <Pricing />
+        {/* <Pricing /> */}
         <Contact />
       </main>
       <Footer />

@@ -67,11 +67,11 @@ export const Navbar = () => {
                 Team
               </a>
             </li> */}
-            <li>
+            {/* <li>
               <a className="nav-link scrollto" href="#pricing">
                 Pricing
               </a>
-            </li>
+            </li> */}
             <li>
               <a className="nav-link scrollto" href="#contact">
                 Contact

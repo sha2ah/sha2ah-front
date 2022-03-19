@@ -1,4 +1,5 @@
-import { RightOutlined } from '@ant-design/icons'
+import { CheckOutlined } from '@ant-design/icons'
+
 export function About() {
   return (
     <section id="about" className="about section">
@@ -11,30 +12,42 @@ export function About() {
           <div className="col-lg-6">
             <p>
               You deserve simple property management. Your tenants deserve
-              simple rent payments. Ajar gives you the tools and insights to
+              simple rent payments. EasyRent gives you the tools and insights to
               satisfy your tenants and increase your revenue.
             </p>
+            <b>Landloard</b>
             <ul>
               <li>
-                <RightOutlined /> Ullamco laboris nisi ut aliquip ex ea commodo
-                consequat
+                <CheckOutlined /> Add your properties and tenants with ease
+                consequat.
               </li>
               <li>
-                <RightOutlined /> Duis aute irure dolor in reprehenderit in
-                voluptate velit
+                <CheckOutlined /> Customize and auto send invoices.
               </li>
               <li>
-                <RightOutlined /> Ullamco laboris nisi ut aliquip ex ea commodo
-                consequat
+                <CheckOutlined /> Access all your tenants and leases in one
+                place.
               </li>
             </ul>
           </div>
           <div className="col-lg-6 pt-4 pt-lg-0">
             <p>
-              You deserve simple property management. Your tenants deserve
-              simple rent payments. EasyRent gives you the tools and insights to
-              satisfy your tenants and increase your revenue.
+              With EasyRent you have the freedom to collect payments online and
+              offline. Tenants have the freedom to pay their rent and other
+              bills through any of our accepted payment methods.
             </p>
+            <b>Tenant</b>
+            <ul>
+              <li>
+                <CheckOutlined /> Receive SMS and email alerts for due payments.
+              </li>
+              <li>
+                <CheckOutlined /> Choose how, when, and from where to pay.
+              </li>
+              <li>
+                <CheckOutlined /> Send requests to your landlord directly.
+              </li>
+            </ul>
           </div>
         </div>
       </div>
