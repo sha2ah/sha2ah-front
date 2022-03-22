@@ -34,6 +34,7 @@ import {
   RepairRequestEdit,
   RepairRequestShow,
 } from 'pages/repairRequests'
+import Insights from 'pages/insights'
 import {
   Title,
   Header,
@@ -152,6 +153,10 @@ function App() {
           create: RepairRequestCreate,
           edit: RepairRequestEdit,
           show: RepairRequestShow,
+        },
+        {
+          name: 'Insights',
+          list: Insights,
         },
       ]}
       Title={Title}
