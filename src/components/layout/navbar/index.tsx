@@ -9,7 +9,11 @@ import {
   Avatar,
   Typography,
 } from '@pankod/refine-antd'
+import { MenuOutlined } from '@ant-design/icons'
+import routerProvider from '@pankod/refine-react-router'
 import { useTranslation } from 'react-i18next'
+
+const { Link } = routerProvider
 
 const { DownOutlined } = Icons
 const { Text } = Typography
@@ -42,7 +46,7 @@ export const Navbar = () => {
     <header id="header" className="fixed-top">
       <div className="container d-flex align-items-center justify-content-between">
         <h1 className="logo">
-          <a href="index.html">EasyRent</a>
+          <Link to="/">EasyRent</Link>
         </h1>
 
         <nav id="navbar" className="navbar">
@@ -97,12 +101,14 @@ export const Navbar = () => {
               </Dropdown>
             </li>
             <li>
-              <a className="getstarted scrollto" href="#about">
-                SIGN UP
-              </a>
+              <Link to="/signup" className="getstarted">
+                Get Started
+              </Link>
             </li>
           </ul>
-          <i className="bi bi-list mobile-nav-toggle"></i>
+          <Link to="/signup" className="getstarted mobile-nav-toggle">
+            Get Started
+          </Link>
         </nav>
       </div>
     </header>

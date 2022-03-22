@@ -1,30 +1,31 @@
-import React from "react";
-import routerProvider from "@pankod/refine-react-router";
-import { TitleProps } from "@pankod/refine-core";
+import React from 'react'
+import routerProvider from '@pankod/refine-react-router'
+import { TitleProps } from '@pankod/refine-core'
 
-const { Link } = routerProvider;
+import './styles.scss'
+
+const { Link } = routerProvider
 
 export const Title: React.FC<TitleProps> = ({ collapsed }) => (
   <Link to="/">
     {collapsed ? (
       <img
-        src={"/refine-collapsed.svg"}
-        alt="Refine"
+        src={'/EASY RENT logo white.png'}
+        alt="EASY RENT LOGO"
         style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       />
     ) : (
       <img
-        src={"/refine.svg"}
-        alt="Refine"
+        src={'/EASY RENT logo white.png'}
+        alt="EASY RENT LOGO"
         style={{
-          width: "200px",
+          width: '150px',
         }}
       />
     )}
   </Link>
-);
+)

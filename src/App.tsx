@@ -10,7 +10,7 @@ import axios from 'axios'
 import { Home } from './pages/home.server'
 import { NotFound } from './pages/notfound'
 import { Login } from 'pages/login'
-import { PostList, PostCreate, PostEdit, PostShow } from 'pages/posts'
+import * as Signup from 'pages/signup'
 import { RenterList, RenterCreate, RenterEdit, RenterShow } from 'pages/renters'
 import { EstateList, EstateCreate, EstateEdit, EstateShow } from 'pages/estates'
 import { UnitList, UnitCreate, UnitEdit, UnitShow } from 'pages/units'
@@ -97,6 +97,10 @@ function App() {
             exact: true,
             component: Home,
             path: '/',
+          },
+          {
+            component: Signup,
+            path: '/signup',
           },
           {
             component: NotFound,
