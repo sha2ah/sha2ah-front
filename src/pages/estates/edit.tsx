@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslate, IResourceComponentsProps } from '@pankod/refine-core'
 import {
   Edit,
@@ -8,15 +8,14 @@ import {
   useForm,
   useSelect,
 } from '@pankod/refine-antd'
-import ReactMarkdown from 'react-markdown'
-import ReactMde from 'react-mde'
+import estateServices from '../../services/estateServices'
 
 import 'react-mde/lib/styles/css/react-mde-all.css'
 
 import { IEstate } from 'interfaces'
 
 export const EstateEdit: React.FC<IResourceComponentsProps> = () => {
-  const [selectedTab, setSelectedTab] = useState<'write' | 'preview'>('write')
+  const [estateTypes, setEstateTypes] = useState([])
 
   const t = useTranslate()
 
@@ -26,6 +25,17 @@ export const EstateEdit: React.FC<IResourceComponentsProps> = () => {
   //   resource: "categories",
   //   defaultValue: queryResult?.data?.data.category.id,
   // });
+
+  useEffect(() => {
+    const getEstateTypes = async () => {
+      const { data } = await estateServices.getEstateTypes()
+      const newEstateTypes = data.map((type: { id: number; name: string }) => {
+        return { label: type.name, value: type.id }
+      })
+      setEstateTypes(newEstateTypes)
+    }
+    getEstateTypes()
+  }, [estateTypes])
 
   return (
     <Edit saveButtonProps={saveButtonProps}>
@@ -50,18 +60,7 @@ export const EstateEdit: React.FC<IResourceComponentsProps> = () => {
             },
           ]}
         >
-          <Select
-            options={[
-              {
-                label: 'Residential',
-                value: 1,
-              },
-              {
-                label: 'Commercial',
-                value: 2,
-              },
-            ]}
-          />
+          <Select options={estateTypes} />
         </Form.Item>
         <Form.Item
           label="Number of Floors"
