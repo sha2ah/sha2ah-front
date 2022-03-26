@@ -1,11 +1,11 @@
 import axios from 'axios'
 
-const token: String = localStorage.getItem('token') || ''
+const token: String = sessionStorage.getItem('token') || ''
 const auth: String = `Bearer ${token}`
 
 export const api = (table: String) => {
   return axios.create({
-    baseURL: `https://guarded-scrubland-74784.herokuapp.com/api/${table}`,
+    baseURL: `https://guarded-scrubland-74784.herokuapp.com/${table}`,
     withCredentials: false,
     headers: {
       Accept: 'application/json',
@@ -13,4 +13,10 @@ export const api = (table: String) => {
       Authorization: auth,
     },
   })
+}
+
+export const config = {
+  headers: {
+    'Content-Type': 'multipart/form-data',
+  },
 }
