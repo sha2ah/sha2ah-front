@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslate, IResourceComponentsProps } from '@pankod/refine-core'
 import {
   Create,
@@ -8,16 +8,13 @@ import {
   useSelect,
   useForm,
 } from '@pankod/refine-antd'
-
-import ReactMarkdown from 'react-markdown'
-import ReactMde from 'react-mde'
-
+import estateServices from '../../services/estateServices'
 import 'react-mde/lib/styles/css/react-mde-all.css'
 
-import { IUnit } from 'interfaces'
+import { IUnit, IEstate } from 'interfaces'
 
 export const UnitCreate: React.FC<IResourceComponentsProps> = () => {
-  const [selectedTab, setSelectedTab] = useState<'write' | 'preview'>('write')
+  const [estates, setEstates] = useState([])
 
   const t = useTranslate()
 
@@ -26,6 +23,17 @@ export const UnitCreate: React.FC<IResourceComponentsProps> = () => {
   // const { selectProps: categorySelectProps } = useSelect<ICategory>({
   //   resource: "categories",
   // });
+
+  useEffect(() => {
+    const getEstates = async () => {
+      const { data } = await estateServices.getAll()
+      const newEstates = data.map((estate: IEstate) => {
+        return { label: estate.name, value: estate.id }
+      })
+      setEstates(newEstates)
+    }
+    getEstates()
+  }, [estates])
 
   return (
     <Create saveButtonProps={saveButtonProps}>
@@ -61,18 +69,7 @@ export const UnitCreate: React.FC<IResourceComponentsProps> = () => {
             },
           ]}
         >
-          <Select
-            options={[
-              {
-                label: 'Active',
-                value: 'active',
-              },
-              {
-                label: 'Draft',
-                value: 'draft',
-              },
-            ]}
-          />
+          <Select options={estates} />
         </Form.Item>
         <Form.Item
           label="Floor"

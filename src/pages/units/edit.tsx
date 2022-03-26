@@ -1,31 +1,29 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslate, IResourceComponentsProps } from '@pankod/refine-core'
-import {
-  Edit,
-  Form,
-  Input,
-  Select,
-  useForm,
-  useSelect,
-} from '@pankod/refine-antd'
-import ReactMarkdown from 'react-markdown'
-import ReactMde from 'react-mde'
+import { Edit, Form, Input, Select, useForm } from '@pankod/refine-antd'
+import estateServices from '../../services/estateServices'
 
 import 'react-mde/lib/styles/css/react-mde-all.css'
 
-import { IRenter } from 'interfaces'
+import { IRenter, IEstate } from 'interfaces'
 
 export const UnitEdit: React.FC<IResourceComponentsProps> = () => {
-  const [selectedTab, setSelectedTab] = useState<'write' | 'preview'>('write')
+  const [estates, setEstates] = useState([])
 
   const t = useTranslate()
 
-  const { formProps, saveButtonProps, queryResult } = useForm<IRenter>()
+  const { formProps, saveButtonProps } = useForm<IRenter>()
 
-  // const { selectProps: categorySelectProps } = useSelect<IRenter>({
-  //   resource: "categories",
-  //   defaultValue: queryResult?.data?.data.category.id,
-  // });
+  useEffect(() => {
+    const getEstates = async () => {
+      const { data } = await estateServices.getAll()
+      const newEstates = data.map((estate: IEstate) => {
+        return { label: estate.name, value: estate.id }
+      })
+      setEstates(newEstates)
+    }
+    getEstates()
+  }, [estates])
 
   return (
     <Edit saveButtonProps={saveButtonProps}>
@@ -61,18 +59,7 @@ export const UnitEdit: React.FC<IResourceComponentsProps> = () => {
             },
           ]}
         >
-          <Select
-            options={[
-              {
-                label: 'Active',
-                value: 'active',
-              },
-              {
-                label: 'Draft',
-                value: 'draft',
-              },
-            ]}
-          />
+          <Select options={estates} />
         </Form.Item>
         <Form.Item
           label="Floor"
