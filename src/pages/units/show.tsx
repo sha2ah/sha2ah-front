@@ -19,25 +19,25 @@ export const UnitShow: React.FC<IResourceComponentsProps> = () => {
 
   return (
     <Show isLoading={isLoading}>
-      <Title level={5}>Name</Title>
+      <Title level={5}>{t('units.fields.name')}</Title>
       <Text>{record?.name}</Text>
 
-      <Title level={5}>Phone</Title>
+      <Title level={5}>{t('units.fields.phone')}</Title>
       <Text>
         <Text>{record?.phone}</Text>
       </Text>
 
-      <Title level={5}>Estate</Title>
+      <Title level={5}>{t('units.fields.estate')}</Title>
       <Text>
         <Text>{record?.estate}</Text>
       </Text>
 
-      <Title level={5}>Floor</Title>
+      <Title level={5}>{t('units.fields.floor')}</Title>
       <Text>
         <Text>{record?.floor}</Text>
       </Text>
 
-      <Title level={5}>Number</Title>
+      <Title level={5}>{t('units.fields.number')}</Title>
       <Text>
         <Text>{record?.number}</Text>
       </Text>

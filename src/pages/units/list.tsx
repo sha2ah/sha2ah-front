@@ -39,7 +39,7 @@ export const UnitList: React.FC<IResourceComponentsProps> = () => {
         <Table.Column
           dataIndex="id"
           key="id"
-          title="ID"
+          title={t('units.fields.id')}
           render={(value) => <TextField value={value} />}
           defaultSortOrder={getDefaultSortOrder('id', sorter)}
           sorter
@@ -47,7 +47,7 @@ export const UnitList: React.FC<IResourceComponentsProps> = () => {
         <Table.Column
           dataIndex="name"
           key="name"
-          title="Name"
+          title={t('units.fields.name')}
           render={(value) => <TextField value={value} />}
           defaultSortOrder={getDefaultSortOrder('name', sorter)}
           sorter
@@ -55,7 +55,7 @@ export const UnitList: React.FC<IResourceComponentsProps> = () => {
         <Table.Column
           dataIndex="phone"
           key="phone"
-          title="Phone"
+          title={t('units.fields.phone')}
           render={(value) => <TextField value={value} />}
           defaultSortOrder={getDefaultSortOrder('phone', sorter)}
           sorter
@@ -63,7 +63,7 @@ export const UnitList: React.FC<IResourceComponentsProps> = () => {
         <Table.Column
           dataIndex="estate"
           key="estate"
-          title="Estate"
+          title={t('units.fields.estate')}
           render={(value) => <TextField value={value} />}
           defaultSortOrder={getDefaultSortOrder('estate', sorter)}
           sorter
@@ -71,7 +71,7 @@ export const UnitList: React.FC<IResourceComponentsProps> = () => {
         <Table.Column
           dataIndex="floor"
           key="floor"
-          title="Floor"
+          title={t('units.fields.floor')}
           render={(value) => <TextField value={value} />}
           defaultSortOrder={getDefaultSortOrder('floor', sorter)}
           sorter
@@ -79,7 +79,7 @@ export const UnitList: React.FC<IResourceComponentsProps> = () => {
         <Table.Column
           dataIndex="number"
           key="number"
-          title="Number"
+          title={t('units.fields.number')}
           render={(value) => <TextField value={value} />}
           defaultSortOrder={getDefaultSortOrder('number', sorter)}
           sorter

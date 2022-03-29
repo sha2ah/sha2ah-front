@@ -84,7 +84,7 @@
   "estates": {
     "estates": "Estates",
     "fields": {
-      "id": "Id",
+      "id": "ID",
       "name": "Name",
       "estate_type": {
         "title": "Type",
@@ -100,6 +100,23 @@
       "edit": "Edit Estate",
       "list": "Estate",
       "show": "Show Estate"
+    }
+  },
+  "units": {
+    "units": "Units",
+    "fields": {
+      "id": "ID",
+      "name": "Name",
+      "phone": "Phone",
+      "estate": "Estate",
+      "floor": "Floor",
+      "number": "Number"
+    },
+    "titles": {
+      "create": "Create Unit",
+      "edit": "Edit Unit",
+      "list": "Unit",
+      "show": "Show Unit"
     }
   },
   "table": {

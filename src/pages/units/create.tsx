@@ -39,7 +39,7 @@ export const UnitCreate: React.FC<IResourceComponentsProps> = () => {
     <Create saveButtonProps={saveButtonProps}>
       <Form {...formProps} layout="vertical">
         <Form.Item
-          label="Name"
+          label={t('units.fields.name')}
           name="name"
           rules={[
             {
@@ -50,7 +50,7 @@ export const UnitCreate: React.FC<IResourceComponentsProps> = () => {
           <Input />
         </Form.Item>
         <Form.Item
-          label="Phone"
+          label={t('units.fields.phone')}
           name="phone"
           rules={[
             {
@@ -61,7 +61,7 @@ export const UnitCreate: React.FC<IResourceComponentsProps> = () => {
           <Input />
         </Form.Item>
         <Form.Item
-          label="Estate"
+          label={t('units.fields.estate')}
           name="estate"
           rules={[
             {
@@ -72,7 +72,7 @@ export const UnitCreate: React.FC<IResourceComponentsProps> = () => {
           <Select options={estates} />
         </Form.Item>
         <Form.Item
-          label="Floor"
+          label={t('units.fields.floor')}
           name="floor"
           rules={[
             {
@@ -83,7 +83,7 @@ export const UnitCreate: React.FC<IResourceComponentsProps> = () => {
           <Input />
         </Form.Item>
         <Form.Item
-          label="Number"
+          label={t('units.fields.number')}
           name="number"
           rules={[
             {
