@@ -40,6 +40,16 @@ h6 {
     text-align: right !important;
     margin: 0 8px;
   }
+
+  .ant-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span:nth-child(2) {
+      margin-right: 8px;
+    }
+  }
 }
 
 @import 'header';
