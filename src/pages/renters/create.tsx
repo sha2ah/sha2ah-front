@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useTranslate, IResourceComponentsProps } from "@pankod/refine-core";
+import { useState } from 'react'
+import { useTranslate, IResourceComponentsProps } from '@pankod/refine-core'
 import {
   Create,
   Form,
@@ -7,21 +7,21 @@ import {
   Select,
   useSelect,
   useForm,
-} from "@pankod/refine-antd";
+} from '@pankod/refine-antd'
 
-import ReactMarkdown from "react-markdown";
-import ReactMde from "react-mde";
+import ReactMarkdown from 'react-markdown'
+import ReactMde from 'react-mde'
 
-import "react-mde/lib/styles/css/react-mde-all.css";
+import 'react-mde/lib/styles/css/react-mde-all.css'
 
-import { IRenter } from "interfaces";
+import { IRenter } from 'interfaces'
 
 export const RenterCreate: React.FC<IResourceComponentsProps> = () => {
-  const [selectedTab, setSelectedTab] = useState<"write" | "preview">("write");
+  const [selectedTab, setSelectedTab] = useState<'write' | 'preview'>('write')
 
-  const t = useTranslate();
+  const t = useTranslate()
 
-  const { formProps, saveButtonProps } = useForm<IRenter>();
+  const { formProps, saveButtonProps } = useForm<IRenter>()
 
   // const { selectProps: categorySelectProps } = useSelect<ICategory>({
   //   resource: "categories",
@@ -52,10 +52,10 @@ export const RenterCreate: React.FC<IResourceComponentsProps> = () => {
         >
           <Input />
         </Form.Item>
-        <Form.Item label="Email" name="email">
+        {/* <Form.Item label="Email" name="email">
           <Input />
-        </Form.Item>
-        <Form.Item
+        </Form.Item> */}
+        {/* <Form.Item
           label="Status"
           name="status"
           rules={[
@@ -76,7 +76,7 @@ export const RenterCreate: React.FC<IResourceComponentsProps> = () => {
               },
             ]}
           />
-        </Form.Item>
+        </Form.Item> */}
 
         {/* <Form.Item
           label={t("posts.fields.category.title")}
@@ -89,7 +89,7 @@ export const RenterCreate: React.FC<IResourceComponentsProps> = () => {
         >
           <Select {...categorySelectProps} />
         </Form.Item> */}
-        <Form.Item label="Details" name="details">
+        <Form.Item label="Details" name="bio">
           <ReactMde
             selectedTab={selectedTab}
             onTabChange={setSelectedTab}
@@ -100,5 +100,5 @@ export const RenterCreate: React.FC<IResourceComponentsProps> = () => {
         </Form.Item>
       </Form>
     </Create>
-  );
-};
+  )
+}

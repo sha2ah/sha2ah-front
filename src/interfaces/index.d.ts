@@ -17,8 +17,9 @@ export interface IRenter {
   phone: string
   status: string
   email?: string
-  details?: string
+  bio?: string
   createdAt: string
+  birth_date?: string
 }
 
 export interface IEstate {

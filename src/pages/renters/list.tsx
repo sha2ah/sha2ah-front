@@ -2,7 +2,7 @@ import {
   useTranslate,
   IResourceComponentsProps,
   useMany,
-} from "@pankod/refine-core";
+} from '@pankod/refine-core'
 import {
   List,
   Table,
@@ -18,20 +18,20 @@ import {
   FilterDropdown,
   Select,
   ShowButton,
-} from "@pankod/refine-antd";
-import { IRenter } from "interfaces";
+} from '@pankod/refine-antd'
+import { IRenter } from 'interfaces'
 
 export const RenterList: React.FC<IResourceComponentsProps> = () => {
-  const t = useTranslate();
+  const t = useTranslate()
 
   const { tableProps, sorter } = useTable<IRenter>({
     initialSorter: [
       {
-        field: "id",
-        order: "desc",
+        field: 'id',
+        order: 'desc',
       },
     ],
-  });
+  })
 
   return (
     <List>
@@ -41,7 +41,7 @@ export const RenterList: React.FC<IResourceComponentsProps> = () => {
           key="id"
           title="ID"
           render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder("id", sorter)}
+          defaultSortOrder={getDefaultSortOrder('id', sorter)}
           sorter
         />
         <Table.Column
@@ -49,36 +49,36 @@ export const RenterList: React.FC<IResourceComponentsProps> = () => {
           key="name"
           title="Name"
           render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder("name", sorter)}
+          defaultSortOrder={getDefaultSortOrder('name', sorter)}
           sorter
         />
-        <Table.Column
+        {/* <Table.Column
           dataIndex="status"
           key="status"
           title="Status"
           render={(value) => <TagField value={value} />}
           defaultSortOrder={getDefaultSortOrder("status", sorter)}
           sorter
-        />
+        /> */}
         <Table.Column
           dataIndex="phone"
           key="phone"
           title="Phone"
           render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder("phone", sorter)}
+          defaultSortOrder={getDefaultSortOrder('phone', sorter)}
           sorter
         />
-        <Table.Column
+        {/* <Table.Column
           dataIndex="createdAt"
           key="createdAt"
           title="Created At"
           render={(value) => <DateField value={value} format="LLL" />}
           defaultSortOrder={getDefaultSortOrder("createdAt", sorter)}
           sorter
-        />
+        /> */}
 
         <Table.Column<IRenter>
-          title={t("table.actions")}
+          title={t('table.actions')}
           dataIndex="actions"
           render={(_, record) => (
             <Space>
@@ -90,5 +90,5 @@ export const RenterList: React.FC<IResourceComponentsProps> = () => {
         />
       </Table>
     </List>
-  );
-};
+  )
+}
