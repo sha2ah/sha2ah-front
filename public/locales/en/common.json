@@ -81,6 +81,27 @@
       "show": "Show Post"
     }
   },
+  "estates": {
+    "estates": "Estates",
+    "fields": {
+      "id": "Id",
+      "name": "Name",
+      "estate_type": {
+        "title": "Type",
+        "published": "اقامة",
+        "draft": "تسويقي",
+        "rejected": "Rejected"
+      },
+      "number_of_floors": "Number of Floors",
+      "units_per_floor": "Units per Floor"
+    },
+    "titles": {
+      "create": "Create Estate",
+      "edit": "Edit Estate",
+      "list": "Estate",
+      "show": "Show Estate"
+    }
+  },
   "table": {
     "actions": "Actions"
   }

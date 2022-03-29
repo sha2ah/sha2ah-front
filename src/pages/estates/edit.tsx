@@ -41,7 +41,7 @@ export const EstateEdit: React.FC<IResourceComponentsProps> = () => {
     <Edit saveButtonProps={saveButtonProps}>
       <Form {...formProps} layout="vertical">
         <Form.Item
-          label="Name"
+          label={t('estates.fields.name')}
           name="name"
           rules={[
             {
@@ -52,7 +52,7 @@ export const EstateEdit: React.FC<IResourceComponentsProps> = () => {
           <Input />
         </Form.Item>
         <Form.Item
-          label="Type"
+          label={t('estates.fields.estate_type.title')}
           name="estate_type"
           rules={[
             {
@@ -63,7 +63,7 @@ export const EstateEdit: React.FC<IResourceComponentsProps> = () => {
           <Select options={estateTypes} />
         </Form.Item>
         <Form.Item
-          label="Number of Floors"
+          label={t('estates.fields.number_of_floors')}
           name="number_of_floors"
           rules={[
             {
@@ -74,7 +74,7 @@ export const EstateEdit: React.FC<IResourceComponentsProps> = () => {
           <Input />
         </Form.Item>
         <Form.Item
-          label="Units per Floor"
+          label={t('estates.fields.units_per_floor')}
           name="units_per_floor"
           rules={[
             {

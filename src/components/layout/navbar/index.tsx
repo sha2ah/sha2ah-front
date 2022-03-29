@@ -37,7 +37,7 @@ export const Navbar = () => {
             </span>
           }
         >
-          {lang === 'en' ? 'English' : 'German'}
+          {lang === 'en' ? 'English' : 'عربي'}
         </Menu.Item>
       ))}
     </Menu>
@@ -66,26 +66,11 @@ export const Navbar = () => {
                 Services
               </a>
             </li>
-            {/* <li>
-              <a className="nav-link scrollto" href="#team">
-                Team
-              </a>
-            </li> */}
-            {/* <li>
-              <a className="nav-link scrollto" href="#pricing">
-                Pricing
-              </a>
-            </li> */}
             <li>
               <a className="nav-link scrollto" href="#contact">
                 Contact
               </a>
             </li>
-            {/* <li>
-              <a className="nav-link scrollto" href="#">
-                عربي
-              </a>
-            </li> */}
             <li>
               <Dropdown overlay={menu}>
                 <Button type="link">
@@ -94,7 +79,7 @@ export const Navbar = () => {
                       size={16}
                       src={`/images/flags/${currentLocale}.svg`}
                     />
-                    {currentLocale === 'en' ? 'English' : 'German'}
+                    {currentLocale === 'en' ? 'English' : 'عربي'}
                     <DownOutlined />
                   </Space>
                 </Button>

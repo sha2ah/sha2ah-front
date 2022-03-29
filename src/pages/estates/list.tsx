@@ -38,35 +38,35 @@ export const EstateList: React.FC<IResourceComponentsProps> = () => {
         <Table.Column
           dataIndex="id"
           key="id"
-          title="ID"
+          title={t('estates.fields.id')}
           render={(value) => <TextField value={value} />}
           defaultSortOrder={getDefaultSortOrder('id')}
         />
         <Table.Column
           dataIndex="name"
           key="name"
-          title="Name"
+          title={t('estates.fields.name')}
           render={(value) => <TextField value={value} />}
           defaultSortOrder={getDefaultSortOrder('name')}
         />
         <Table.Column
           dataIndex="estate_type"
           key="estate_type"
-          title="Type"
+          title={t('estates.fields.estate_type.title')}
           render={(value) => <TagField value={value} />}
           defaultSortOrder={getDefaultSortOrder('estate_type')}
         />
         <Table.Column
           dataIndex="number_of_floors"
           key="number_of_floors"
-          title="Number of Floors"
+          title={t('estates.fields.number_of_floors')}
           render={(value) => <TextField value={value} />}
           defaultSortOrder={getDefaultSortOrder('number_of_floors')}
         />
         <Table.Column
           dataIndex="units_per_floor"
           key="units_per_floor"
-          title="Units per Floor"
+          title={t('estates.fields.units_per_floor')}
           render={(value) => <TextField value={value} />}
           defaultSortOrder={getDefaultSortOrder('units_per_floor')}
         />

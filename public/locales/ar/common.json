@@ -1,0 +1,81 @@
+{
+  "pages": {
+    "login": {
+      "signin": "تسجيل الدخول",
+      "signup": "تسجيل حساب جديد",
+      "username": "اسم المستخدم",
+      "password": "كلمة المرور",
+      "remember": "تذكرني",
+      "forgotPassword": "نسيت كلمة المرور؟",
+      "title": "تسجيل الدخول",
+      "noAccount": "لا تمتلك حساب؟"
+    },
+    "error": {
+      "info": "You may have forgotten to add the {{action}} component to {{resource}} resource.",
+      "404": "الصفحة التي تبحث عنها ليست موجودة",
+      "resource404": "Are you sure you have created the {{resource}} resource.",
+      "backHome": "العودة للرئيسية"
+    }
+  },
+  "buttons": {
+    "create": "انشاء",
+    "save": "حفظ",
+    "logout": "تسجيل الخروج",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "cancel": "الغاء",
+    "confirm": "هل انت متأكد؟",
+    "filter": "تصفية",
+    "clear": "مسح",
+    "refresh": "اعادة تحميل",
+    "show": "اظهار",
+    "undo": "اعادة",
+    "import": "رفع",
+    "clone": "نسخ",
+    "notAccessTitle": "ليس لديك اذن بالدخول"
+  },
+  "warnWhenUnsavedChanges": "هل انت متأكد من الخروج؟ لديك تغيرات غير محفوظة",
+  "notifications": {
+    "success": "نجاح",
+    "error": "Error (status code: {{statusCode}})",
+    "undoable": "You have {{seconds}} seconds to undo",
+    "createSuccess": "تم انشاء {{resource}} بنجاح",
+    "createError": "There was an error creating {{resource}} (status code: {{statusCode}})",
+    "deleteSuccess": "تم حذف {{resource}} بنجاح",
+    "deleteError": "Error when deleting {{resource}} (status code: {{statusCode}})",
+    "editSuccess": "تم تعديل {{resource}} بنجاح",
+    "editError": "Error when editing {{resource}} (status code: {{statusCode}})",
+    "importProgress": "Importing: {{processed}}/{{total}}"
+  },
+  "loading": "تحميل",
+  "tags": {
+    "clone": "نسخ"
+  },
+  "dashboard": {
+    "title": "وحدة التحكم"
+  },
+  "estates": {
+    "estates": "العقارات",
+    "fields": {
+      "id": "رقم",
+      "name": "الاسم",
+      "estate_type": {
+        "title": "نوع العقار",
+        "published": "اقامة",
+        "draft": "تسويقي",
+        "rejected": "Rejected"
+      },
+      "number_of_floors": "عدد الطوابق",
+      "units_per_floor": "الوحدات لكل طابق"
+    },
+    "titles": {
+      "create": "انشاء عقار",
+      "edit": "تعديل عقار",
+      "list": "العقارات",
+      "show": "عرض عقار"
+    }
+  },
+  "table": {
+    "actions": "عمليات"
+  }
+}
