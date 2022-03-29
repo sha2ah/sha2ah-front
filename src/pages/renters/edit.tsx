@@ -31,7 +31,7 @@ export const RenterEdit: React.FC<IResourceComponentsProps> = () => {
     <Edit saveButtonProps={saveButtonProps}>
       <Form {...formProps} layout="vertical">
         <Form.Item
-          label="Name"
+          label={t('renters.fields.name')}
           name="name"
           rules={[
             {
@@ -42,7 +42,7 @@ export const RenterEdit: React.FC<IResourceComponentsProps> = () => {
           <Input />
         </Form.Item>
         <Form.Item
-          label="Phone"
+          label={t('renters.fields.phone')}
           name="phone"
           rules={[
             {
@@ -89,7 +89,7 @@ export const RenterEdit: React.FC<IResourceComponentsProps> = () => {
         >
           <Select {...categorySelectProps} />
         </Form.Item> */}
-        <Form.Item label="Details" name="bio">
+        <Form.Item label={t('renters.fields.details')} name="bio">
           <ReactMde
             selectedTab={selectedTab}
             onTabChange={setSelectedTab}

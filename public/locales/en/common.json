@@ -81,6 +81,21 @@
       "show": "Show Post"
     }
   },
+  "renters": {
+    "renters": "Renters",
+    "fields": {
+      "id": "ID",
+      "name": "Name",
+      "phone": "Phone",
+      "details": "Details"
+    },
+    "titles": {
+      "create": "Create Renter",
+      "edit": "Edit Renter",
+      "list": "Renters",
+      "show": "Show Renter"
+    }
+  },
   "estates": {
     "estates": "Estates",
     "fields": {
@@ -98,7 +113,7 @@
     "titles": {
       "create": "Create Estate",
       "edit": "Edit Estate",
-      "list": "Estate",
+      "list": "Estates",
       "show": "Show Estate"
     }
   },
@@ -115,7 +130,7 @@
     "titles": {
       "create": "Create Unit",
       "edit": "Edit Unit",
-      "list": "Unit",
+      "list": "Units",
       "show": "Show Unit"
     }
   },

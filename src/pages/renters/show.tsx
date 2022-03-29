@@ -19,10 +19,10 @@ export const RenterShow: React.FC<IResourceComponentsProps> = () => {
 
   return (
     <Show isLoading={isLoading}>
-      <Title level={5}>Name</Title>
+      <Title level={5}>{t('renters.fields.name')}</Title>
       <Text>{record?.name}</Text>
 
-      <Title level={5}>Phone</Title>
+      <Title level={5}>{t('renters.fields.phone')}</Title>
       <Text>{record?.phone}</Text>
 
       {/* <Title level={5}>Email</Title>
@@ -33,7 +33,7 @@ export const RenterShow: React.FC<IResourceComponentsProps> = () => {
         <Tag>{record?.status}</Tag>
       </Text> */}
 
-      <Title level={5}>Details</Title>
+      <Title level={5}>{t('renters.fields.details')}</Title>
       <MarkdownField value={record?.bio} />
     </Show>
   )

@@ -54,6 +54,21 @@
   "dashboard": {
     "title": "وحدة التحكم"
   },
+  "renters": {
+    "renters": "الموستأجرين",
+    "fields": {
+      "id": "رقم",
+      "name": "الاسم",
+      "phone": "الهاتف",
+      "details": "التفاصيل"
+    },
+    "titles": {
+      "create": "انشاء موستأجر",
+      "edit": "تعديل موستأجر",
+      "list": "الموستأجرين",
+      "show": "عرض موستأجر"
+    }
+  },
   "estates": {
     "estates": "العقارات",
     "fields": {

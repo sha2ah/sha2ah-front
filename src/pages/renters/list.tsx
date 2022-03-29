@@ -39,7 +39,7 @@ export const RenterList: React.FC<IResourceComponentsProps> = () => {
         <Table.Column
           dataIndex="id"
           key="id"
-          title="ID"
+          title={t('renters.fields.id')}
           render={(value) => <TextField value={value} />}
           defaultSortOrder={getDefaultSortOrder('id', sorter)}
           sorter
@@ -47,7 +47,7 @@ export const RenterList: React.FC<IResourceComponentsProps> = () => {
         <Table.Column
           dataIndex="name"
           key="name"
-          title="Name"
+          title={t('renters.fields.name')}
           render={(value) => <TextField value={value} />}
           defaultSortOrder={getDefaultSortOrder('name', sorter)}
           sorter
@@ -63,7 +63,7 @@ export const RenterList: React.FC<IResourceComponentsProps> = () => {
         <Table.Column
           dataIndex="phone"
           key="phone"
-          title="Phone"
+          title={t('renters.fields.phone')}
           render={(value) => <TextField value={value} />}
           defaultSortOrder={getDefaultSortOrder('phone', sorter)}
           sorter
