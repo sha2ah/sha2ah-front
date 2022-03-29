@@ -1,4 +1,4 @@
-import { Refine, AuthProvider } from '@pankod/refine-core'
+import { Refine, AuthProvider, useGetLocale } from '@pankod/refine-core'
 import { notificationProvider } from '@pankod/refine-antd'
 import routerProvider from '@pankod/refine-react-router'
 import 'styles/antd.less'
@@ -87,90 +87,94 @@ function App() {
     getLocale: () => i18n.language,
   }
 
+  const dir = i18nProvider.getLocale() === 'en' ? 'ltr' : 'rtl'
+
   const CustomRouterComponent = () => <RouterComponent basename="/admin" />
   return (
-    <Refine
-      routerProvider={{
-        ...routerProvider,
-        routes: [
+    <div dir={dir} className={dir === 'ltr' ? '' : 'text-right'}>
+      <Refine
+        routerProvider={{
+          ...routerProvider,
+          routes: [
+            {
+              exact: true,
+              component: Home,
+              path: '/',
+            },
+            {
+              component: Signup,
+              path: '/signup',
+            },
+            {
+              component: NotFound,
+              path: 'x',
+            },
+          ],
+        }}
+        notificationProvider={notificationProvider}
+        dataProvider={dataProvider(
+          'https://guarded-scrubland-74784.herokuapp.com',
+          axios
+        )}
+        authProvider={authProvider}
+        LoginPage={Login}
+        resources={[
           {
-            exact: true,
-            component: Home,
-            path: '/',
+            name: 'renters',
+            list: RenterList,
+            create: RenterCreate,
+            edit: RenterEdit,
+            show: RenterShow,
           },
           {
-            component: Signup,
-            path: '/signup',
+            name: 'estates',
+            list: EstateList,
+            create: EstateCreate,
+            edit: EstateEdit,
+            show: EstateShow,
           },
           {
-            component: NotFound,
-            path: 'x',
+            name: 'units',
+            list: UnitList,
+            create: UnitCreate,
+            edit: UnitEdit,
+            show: UnitShow,
           },
-        ],
-      }}
-      notificationProvider={notificationProvider}
-      dataProvider={dataProvider(
-        'https://guarded-scrubland-74784.herokuapp.com',
-        axios
-      )}
-      authProvider={authProvider}
-      LoginPage={Login}
-      resources={[
-        {
-          name: 'renters',
-          list: RenterList,
-          create: RenterCreate,
-          edit: RenterEdit,
-          show: RenterShow,
-        },
-        {
-          name: 'estates',
-          list: EstateList,
-          create: EstateCreate,
-          edit: EstateEdit,
-          show: EstateShow,
-        },
-        {
-          name: 'units',
-          list: UnitList,
-          create: UnitCreate,
-          edit: UnitEdit,
-          show: UnitShow,
-        },
-        {
-          name: 'contracts',
-          list: ContractList,
-          create: ContractCreate,
-          edit: ContractEdit,
-          show: ContractShow,
-        },
-        {
-          name: 'invoices',
-          list: InvoiceList,
-          create: InvoiceCreate,
-          edit: InvoiceEdit,
-          show: InvoiceShow,
-        },
-        {
-          name: 'repair-request',
-          list: RepairRequestList,
-          create: RepairRequestCreate,
-          edit: RepairRequestEdit,
-          show: RepairRequestShow,
-        },
-        {
-          name: 'Insights',
-          list: Insights,
-        },
-      ]}
-      Title={Title}
-      Header={Header}
-      Sider={Sider}
-      // Footer={Footer}
-      Layout={Layout}
-      OffLayoutArea={OffLayoutArea}
-      i18nProvider={i18nProvider}
-    />
+          {
+            name: 'contracts',
+            list: ContractList,
+            create: ContractCreate,
+            edit: ContractEdit,
+            show: ContractShow,
+          },
+          {
+            name: 'invoices',
+            list: InvoiceList,
+            create: InvoiceCreate,
+            edit: InvoiceEdit,
+            show: InvoiceShow,
+          },
+          {
+            name: 'repair-request',
+            list: RepairRequestList,
+            create: RepairRequestCreate,
+            edit: RepairRequestEdit,
+            show: RepairRequestShow,
+          },
+          {
+            name: 'Insights',
+            list: Insights,
+          },
+        ]}
+        Title={Title}
+        Header={Header}
+        Sider={Sider}
+        // Footer={Footer}
+        Layout={Layout}
+        OffLayoutArea={OffLayoutArea}
+        i18nProvider={i18nProvider}
+      />
+    </div>
   )
 }
 

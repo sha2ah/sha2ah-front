@@ -24,6 +24,24 @@ h6 {
   font-family: 'Raleway', sans-serif;
 }
 
+.text-right {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  label,
+  p,
+  .ant-form-item-label,
+  .ant-menu-title-content,
+  .ant-table-cell,
+  .ant-typography {
+    text-align: right !important;
+    margin: 0 8px;
+  }
+}
+
 @import 'header';
 @import 'navbar';
 @import 'hero';
