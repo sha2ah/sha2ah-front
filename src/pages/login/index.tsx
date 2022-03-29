@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navbar, Footer } from '../../components/layout'
-import { useLogin } from '@pankod/refine-core'
+import { useLogin, useTranslate } from '@pankod/refine-core'
 import {
   Row,
   Col,
@@ -25,13 +25,14 @@ export interface ILoginForm {
 }
 
 export const Login: React.FC = () => {
+  const t = useTranslate()
   const [form] = Form.useForm<ILoginForm>()
 
   const { mutate: login } = useLogin<ILoginForm>()
 
   const CardTitle = (
     <Title level={1} className="title">
-      Welcome!
+      {t('pages.login.title')}
     </Title>
   )
 
@@ -63,14 +64,17 @@ export const Login: React.FC = () => {
                 >
                   <Form.Item
                     name="username"
-                    label="Username"
+                    label={t('pages.login.username')}
                     rules={[{ required: true }]}
                   >
-                    <Input size="large" placeholder="Username" />
+                    <Input
+                      size="large"
+                      placeholder={t('pages.login.username')}
+                    />
                   </Form.Item>
                   <Form.Item
                     name="password"
-                    label="Password"
+                    label={t('pages.login.password')}
                     rules={[{ required: true }]}
                     style={{ marginBottom: '12px' }}
                   >
@@ -81,17 +85,17 @@ export const Login: React.FC = () => {
                     />
                   </Form.Item>
                   <div className="text-left">
-                    <a href="#">Forgot password?</a>
+                    <a href="#">{t('pages.login.forgotPassword')}</a>
                   </div>
                   <Button size="large" htmlType="submit" block>
-                    Sign in
+                    {t('pages.login.signin')}
                   </Button>
                 </Form>
                 <div style={{ marginTop: 8 }}>
                   <Text style={{ fontSize: 12 }}>
-                    Don’t have an account?{' '}
+                    {t('pages.login.noAccount')}{' '}
                     <Link to="/signup" style={{ fontWeight: 'bold' }}>
-                      Sign up
+                      {t('pages.login.signup')}
                     </Link>
                   </Text>
                 </div>
