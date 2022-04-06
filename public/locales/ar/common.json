@@ -107,6 +107,29 @@
       "show": "عرض وحدة"
     }
   },
+  "contracts": {
+    "contracts": "العقود",
+    "fields": {
+      "id": "رقم",
+      "beneficiary_name": "اسم المستفيد",
+      "type": "النوع",
+      "rent_cost": "تكلفة الايجار",
+      "rent_frequency": "معدل التأجير",
+      "contract_holder_name": "اسم حامل العقد",
+      "date_from": "من تاريخ",
+      "date_to": "الى تاريخ",
+      "first_rent_due_date": "اول تاريخ للايجار",
+      "owner": "المالك",
+      "unit": "الوحدة",
+      "notes": "ملاحظات"
+    },
+    "titles": {
+      "create": "اضافة عقد",
+      "edit": "تعديل عقد",
+      "list": "العقود",
+      "show": "عرض عقد"
+    }
+  },
   "table": {
     "actions": "عمليات"
   }

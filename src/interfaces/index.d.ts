@@ -40,13 +40,18 @@ export interface IUnit {
 }
 
 export interface IContract {
-  id: string
-  title: string
+  id?: string
+  beneficiary_name: string
   type: string
-  status: string
-  validity: string
-  date: string
-  details?: string
+  rent_cost: Number
+  rent_frequency: string
+  contract_holder_name?: string
+  date_from: string
+  date_to: string
+  first_rent_due_date: string
+  owner: string
+  unit: string
+  notes: string
 }
 
 export interface IInvoice {

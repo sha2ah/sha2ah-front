@@ -134,6 +134,29 @@
       "show": "Show Unit"
     }
   },
+  "contracts": {
+    "contracts": "Contracts",
+    "fields": {
+      "id": "ID",
+      "beneficiary_name": "Renter Name",
+      "type": "Type",
+      "rent_cost": "Rent Cost",
+      "rent_frequency": "Rent Frequency",
+      "contract_holder_name": "Contract Holder Name",
+      "date_from": "Date From",
+      "date_to": "Date To",
+      "first_rent_due_date": "First Rent Due Date",
+      "owner": "Owner",
+      "unit": "Unit",
+      "notes": "Notes"
+    },
+    "titles": {
+      "create": "Create Contract",
+      "edit": "Edit Contract",
+      "list": "Contracts",
+      "show": "Show Contract"
+    }
+  },
   "table": {
     "actions": "Actions"
   }

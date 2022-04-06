@@ -19,29 +19,47 @@ export const ContractShow: React.FC<IResourceComponentsProps> = () => {
 
   return (
     <Show isLoading={isLoading}>
-      <Title level={5}>Title</Title>
-      <Text>{record?.title}</Text>
+      <Title level={5}>{t('contracts.fields.beneficiary_name')}</Title>
+      <Text>{record?.beneficiary_name}</Text>
 
-      <Title level={5}>Type</Title>
+      <Title level={5}>{t('contracts.fields.type')}</Title>
       <Text>
         <Tag>{record?.type}</Tag>
       </Text>
 
-      <Title level={5}>Status</Title>
+      <Title level={5}>{t('contracts.fields.rent_cost')}</Title>
       <Text>
-        <Tag>{record?.status}</Tag>
+        <Tag>{record?.rent_cost}</Tag>
       </Text>
 
-      <Title level={5}>Validity</Title>
+      <Title level={5}>{t('contracts.fields.rent_frequency')}</Title>
       <Text>
-        <Tag>{record?.validity}</Tag>
+        <Tag>{record?.rent_frequency}</Tag>
       </Text>
 
-      <Title level={5}>Date</Title>
-      <Text>{record?.date}</Text>
+      <Title level={5}>{t('contracts.fields.date_from')}</Title>
+      <Text>
+        <Tag>{record?.date_from}</Tag>
+      </Text>
 
-      <Title level={5}>Details</Title>
-      <MarkdownField value={record?.details} />
+      <Title level={5}>{t('contracts.fields.date_to')}</Title>
+      <Text>
+        <Tag>{record?.date_to}</Tag>
+      </Text>
+
+      <Title level={5}>{t('contracts.fields.first_rent_due_date')}</Title>
+      <Text>
+        <Tag>{record?.first_rent_due_date}</Tag>
+      </Text>
+
+      <Title level={5}>{t('contracts.fields.owner')}</Title>
+      <Text>{record?.owner}</Text>
+
+      <Title level={5}>{t('contracts.fields.unit')}</Title>
+      <Text>{record?.unit}</Text>
+
+      <Title level={5}>{t('contracts.fields.notes')}</Title>
+      <MarkdownField value={record?.notes} />
     </Show>
   )
 }

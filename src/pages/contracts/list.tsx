@@ -39,50 +39,51 @@ export const ContractList: React.FC<IResourceComponentsProps> = () => {
         <Table.Column
           dataIndex="id"
           key="id"
-          title="ID"
+          title={t('contracts.fields.id')}
           render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder('id', sorter)}
-          sorter
+          defaultSortOrder={getDefaultSortOrder('id')}
         />
         <Table.Column
-          dataIndex="title"
-          key="title"
-          title="Title"
+          dataIndex="beneficiary_name"
+          key="beneficiary_name"
+          title={t('contracts.fields.beneficiary_name')}
           render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder('title', sorter)}
-          sorter
+          defaultSortOrder={getDefaultSortOrder('beneficiary_name')}
         />
         <Table.Column
           dataIndex="type"
           key="type"
-          title="Type"
+          title={t('contracts.fields.type')}
           render={(value) => <TagField value={value} />}
-          defaultSortOrder={getDefaultSortOrder('type', sorter)}
-          sorter
+          defaultSortOrder={getDefaultSortOrder('type')}
         />
         <Table.Column
-          dataIndex="status"
-          key="status"
-          title="Status"
-          render={(value) => <TagField value={value} />}
-          defaultSortOrder={getDefaultSortOrder('status', sorter)}
-          sorter
+          dataIndex="rent_cost"
+          key="rent_cost"
+          title={t('contracts.fields.rent_cost')}
+          render={(value) => <TextField value={value} />}
+          defaultSortOrder={getDefaultSortOrder('rent_cost')}
         />
         <Table.Column
-          dataIndex="validity"
-          key="validity"
-          title="Validity"
-          render={(value) => <TagField value={value} />}
-          defaultSortOrder={getDefaultSortOrder('validity', sorter)}
-          sorter
+          dataIndex="rent_frequency"
+          key="rent_frequency"
+          title={t('contracts.fields.rent_frequency')}
+          render={(value) => <TextField value={value} />}
+          defaultSortOrder={getDefaultSortOrder('rent_frequency')}
         />
         <Table.Column
-          dataIndex="date"
-          key="date"
-          title="Date"
-          render={(value) => <DateField value={value} format="LLL" />}
-          defaultSortOrder={getDefaultSortOrder('date', sorter)}
-          sorter
+          dataIndex="owner"
+          key="owner"
+          title={t('contracts.fields.owner')}
+          render={(value) => <TextField value={value} />}
+          defaultSortOrder={getDefaultSortOrder('owner')}
+        />
+        <Table.Column
+          dataIndex="unit"
+          key="unit"
+          title={t('contracts.fields.unit')}
+          render={(value) => <TextField value={value} />}
+          defaultSortOrder={getDefaultSortOrder('unit')}
         />
 
         <Table.Column<IContract>

@@ -7,6 +7,7 @@ import {
   Select,
   useForm,
   useSelect,
+  DatePicker,
 } from '@pankod/refine-antd'
 import ReactMarkdown from 'react-markdown'
 import ReactMde from 'react-mde'
@@ -31,8 +32,8 @@ export const ContractEdit: React.FC<IResourceComponentsProps> = () => {
     <Edit saveButtonProps={saveButtonProps}>
       <Form {...formProps} layout="vertical">
         <Form.Item
-          label="Title"
-          name="title"
+          label={t('contracts.fields.beneficiary_name')}
+          name="beneficiary_name"
           rules={[
             {
               required: true,
@@ -42,7 +43,7 @@ export const ContractEdit: React.FC<IResourceComponentsProps> = () => {
           <Input />
         </Form.Item>
         <Form.Item
-          label="Type"
+          label={t('contracts.fields.type')}
           name="type"
           rules={[
             {
@@ -64,62 +65,95 @@ export const ContractEdit: React.FC<IResourceComponentsProps> = () => {
           />
         </Form.Item>
         <Form.Item
-          label="Status"
-          name="status"
+          label={t('contracts.fields.rent_cost')}
+          name="rent_cost"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <Select
-            options={[
-              {
-                label: 'Active',
-                value: 'active',
-              },
-              {
-                label: 'Draft',
-                value: 'draft',
-              },
-            ]}
-          />
+          <Input />
         </Form.Item>
         <Form.Item
-          label="Validity"
-          name="validity"
+          label={t('contracts.fields.rent_frequency')}
+          name="rent_frequency"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <Select
-            options={[
-              {
-                label: 'Active',
-                value: 'active',
-              },
-              {
-                label: 'Draft',
-                value: 'draft',
-              },
-            ]}
-          />
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label={t('contracts.fields.date_from')}
+          name="date_from"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <DatePicker style={{ width: '100%' }} />
+        </Form.Item>
+        <Form.Item
+          label={t('contracts.fields.date_to')}
+          name="date_to"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <DatePicker style={{ width: '100%' }} />
+        </Form.Item>
+        <Form.Item
+          label={t('contracts.fields.first_rent_due_date')}
+          name="first_rent_due_date"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <DatePicker style={{ width: '100%' }} />
+        </Form.Item>
+        <Form.Item
+          label={t('contracts.fields.owner')}
+          name="owner"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label={t('contracts.fields.unit')}
+          name="unit"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <Input />
         </Form.Item>
 
         {/* <Form.Item
-        label={t("posts.fields.category.title")}
-        name={["category", "id"]}
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Select {...categorySelectProps} />
-      </Form.Item> */}
-        <Form.Item label="Details" name="details">
+          label={t("posts.fields.category.title")}
+          name={["category", "id"]}
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <Select {...categorySelectProps} />
+        </Form.Item> */}
+        <Form.Item label={t('contracts.fields.notes')} name="notes">
           <ReactMde
             selectedTab={selectedTab}
             onTabChange={setSelectedTab}
