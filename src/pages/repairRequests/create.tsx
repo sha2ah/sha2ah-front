@@ -6,6 +6,7 @@ import {
   Input,
   Select,
   useSelect,
+  DatePicker,
   useForm,
 } from '@pankod/refine-antd'
 
@@ -31,8 +32,8 @@ export const RepairRequestCreate: React.FC<IResourceComponentsProps> = () => {
     <Create saveButtonProps={saveButtonProps}>
       <Form {...formProps} layout="vertical">
         <Form.Item
-          label="Title"
-          name="title"
+          label={t('repairRequests.fields.owner')}
+          name="owner"
           rules={[
             {
               required: true,
@@ -42,29 +43,18 @@ export const RepairRequestCreate: React.FC<IResourceComponentsProps> = () => {
           <Input />
         </Form.Item>
         <Form.Item
-          label="Type"
-          name="type"
+          label={t('repairRequests.fields.unit')}
+          name="unit"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <Select
-            options={[
-              {
-                label: 'Active',
-                value: 'active',
-              },
-              {
-                label: 'Draft',
-                value: 'draft',
-              },
-            ]}
-          />
+          <Input />
         </Form.Item>
         <Form.Item
-          label="Status"
+          label={t('repairRequests.fields.status')}
           name="status"
           rules={[
             {
@@ -85,6 +75,17 @@ export const RepairRequestCreate: React.FC<IResourceComponentsProps> = () => {
             ]}
           />
         </Form.Item>
+        <Form.Item
+          label={t('repairRequests.fields.date')}
+          name="date"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <DatePicker style={{ width: '100%' }} />
+        </Form.Item>
 
         {/* <Form.Item
           label={t("posts.fields.category.title")}
@@ -97,7 +98,16 @@ export const RepairRequestCreate: React.FC<IResourceComponentsProps> = () => {
         >
           <Select {...categorySelectProps} />
         </Form.Item> */}
-        <Form.Item label="Details" name="details">
+        <Form.Item label={t('repairRequests.fields.details')} name="details">
+          <ReactMde
+            selectedTab={selectedTab}
+            onTabChange={setSelectedTab}
+            generateMarkdownPreview={(markdown) =>
+              Promise.resolve(<ReactMarkdown>{markdown}</ReactMarkdown>)
+            }
+          />
+        </Form.Item>
+        <Form.Item label={t('repairRequests.fields.notes')} name="notes">
           <ReactMde
             selectedTab={selectedTab}
             onTabChange={setSelectedTab}

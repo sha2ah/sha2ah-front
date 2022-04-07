@@ -7,10 +7,12 @@ import {
   Select,
   useForm,
   useSelect,
+  DatePicker,
 } from '@pankod/refine-antd'
 import ReactMarkdown from 'react-markdown'
 import ReactMde from 'react-mde'
 
+import dayjs from 'dayjs'
 import 'react-mde/lib/styles/css/react-mde-all.css'
 
 import { IRepairRequest } from 'interfaces'
@@ -31,8 +33,8 @@ export const RepairRequestEdit: React.FC<IResourceComponentsProps> = () => {
     <Edit saveButtonProps={saveButtonProps}>
       <Form {...formProps} layout="vertical">
         <Form.Item
-          label="Title"
-          name="title"
+          label={t('repairRequests.fields.owner')}
+          name="owner"
           rules={[
             {
               required: true,
@@ -42,29 +44,18 @@ export const RepairRequestEdit: React.FC<IResourceComponentsProps> = () => {
           <Input />
         </Form.Item>
         <Form.Item
-          label="Type"
-          name="type"
+          label={t('repairRequests.fields.unit')}
+          name="unit"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <Select
-            options={[
-              {
-                label: 'Active',
-                value: 'active',
-              },
-              {
-                label: 'Draft',
-                value: 'draft',
-              },
-            ]}
-          />
+          <Input />
         </Form.Item>
         <Form.Item
-          label="Status"
+          label={t('repairRequests.fields.status')}
           name="status"
           rules={[
             {
@@ -85,19 +76,42 @@ export const RepairRequestEdit: React.FC<IResourceComponentsProps> = () => {
             ]}
           />
         </Form.Item>
+        <Form.Item
+          label={t('repairRequests.fields.date')}
+          name="date"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+          getValueProps={(value) => ({
+            value: value ? dayjs(value) : '',
+          })}
+        >
+          <DatePicker style={{ width: '100%' }} />
+        </Form.Item>
 
         {/* <Form.Item
-        label={t("posts.fields.category.title")}
-        name={["category", "id"]}
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Select {...categorySelectProps} />
-      </Form.Item> */}
-        <Form.Item label="Details" name="details">
+          label={t("posts.fields.category.title")}
+          name={["category", "id"]}
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <Select {...categorySelectProps} />
+        </Form.Item> */}
+        <Form.Item label={t('repairRequests.fields.details')} name="details">
+          <ReactMde
+            selectedTab={selectedTab}
+            onTabChange={setSelectedTab}
+            generateMarkdownPreview={(markdown) =>
+              Promise.resolve(<ReactMarkdown>{markdown}</ReactMarkdown>)
+            }
+          />
+        </Form.Item>
+        <Form.Item label={t('repairRequests.fields.notes')} name="notes">
           <ReactMde
             selectedTab={selectedTab}
             onTabChange={setSelectedTab}

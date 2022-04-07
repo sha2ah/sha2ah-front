@@ -39,31 +39,31 @@ export const RepairRequestList: React.FC<IResourceComponentsProps> = () => {
         <Table.Column
           dataIndex="id"
           key="id"
-          title="ID"
+          title={t('repairRequests.fields.id')}
           render={(value) => <TextField value={value} />}
           defaultSortOrder={getDefaultSortOrder('id', sorter)}
           sorter
         />
         <Table.Column
-          dataIndex="title"
-          key="title"
-          title="Title"
+          dataIndex="owner"
+          key="owner"
+          title={t('repairRequests.fields.owner')}
           render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder('title', sorter)}
+          defaultSortOrder={getDefaultSortOrder('owner', sorter)}
           sorter
         />
         <Table.Column
-          dataIndex="type"
-          key="type"
-          title="Type"
-          render={(value) => <TagField value={value} />}
-          defaultSortOrder={getDefaultSortOrder('type', sorter)}
+          dataIndex="unit"
+          key="unit"
+          title={t('repairRequests.fields.unit')}
+          render={(value) => <TextField value={value} />}
+          defaultSortOrder={getDefaultSortOrder('unit', sorter)}
           sorter
         />
         <Table.Column
           dataIndex="status"
           key="status"
-          title="Status"
+          title={t('repairRequests.fields.status')}
           render={(value) => <TagField value={value} />}
           defaultSortOrder={getDefaultSortOrder('status', sorter)}
           sorter
@@ -71,7 +71,7 @@ export const RepairRequestList: React.FC<IResourceComponentsProps> = () => {
         <Table.Column
           dataIndex="date"
           key="date"
-          title="Date"
+          title={t('repairRequests.fields.date')}
           render={(value) => <DateField value={value} format="LLL" />}
           defaultSortOrder={getDefaultSortOrder('date', sorter)}
           sorter

@@ -19,23 +19,26 @@ export const RepairRequestShow: React.FC<IResourceComponentsProps> = () => {
 
   return (
     <Show isLoading={isLoading}>
-      <Title level={5}>Title</Title>
-      <Text>{record?.title}</Text>
+      <Title level={5}>{t('repairRequests.fields.owner')}</Title>
+      <Text>{record?.owner}</Text>
 
-      <Title level={5}>Type</Title>
+      <Title level={5}>{t('repairRequests.fields.unit')}</Title>
       <Text>
-        <Tag>{record?.type}</Tag>
+        <Tag>{record?.unit}</Tag>
       </Text>
 
-      <Title level={5}>Status</Title>
+      <Title level={5}>{t('repairRequests.fields.status')}</Title>
       <Text>
         <Tag>{record?.status}</Tag>
       </Text>
 
-      <Title level={5}>Date</Title>
+      <Title level={5}>{t('repairRequests.fields.date')}</Title>
       <Text>{record?.date}</Text>
 
-      <Title level={5}>Details</Title>
+      <Title level={5}>{t('repairRequests.fields.details')}</Title>
+      <MarkdownField value={record?.details} />
+
+      <Title level={5}>{t('repairRequests.fields.notes')}</Title>
       <MarkdownField value={record?.details} />
     </Show>
   )
