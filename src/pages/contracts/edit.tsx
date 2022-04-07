@@ -10,8 +10,8 @@ import {
   DatePicker,
 } from '@pankod/refine-antd'
 import ReactMarkdown from 'react-markdown'
+import dayjs from 'dayjs'
 import ReactMde from 'react-mde'
-import locale from 'antd/es/date-picker/locale/en_US'
 
 import 'react-mde/lib/styles/css/react-mde-all.css'
 
@@ -95,8 +95,11 @@ export const ContractEdit: React.FC<IResourceComponentsProps> = () => {
               required: true,
             },
           ]}
+          getValueProps={(value) => ({
+            value: value ? dayjs(value) : '',
+          })}
         >
-          <DatePicker style={{ width: '100%' }} locale={locale} />
+          <DatePicker style={{ width: '100%' }} />
         </Form.Item>
         <Form.Item
           label={t('contracts.fields.date_to')}
@@ -106,8 +109,11 @@ export const ContractEdit: React.FC<IResourceComponentsProps> = () => {
               required: true,
             },
           ]}
+          getValueProps={(value) => ({
+            value: value ? dayjs(value) : '',
+          })}
         >
-          <DatePicker style={{ width: '100%' }} locale={locale} />
+          <DatePicker style={{ width: '100%' }} />
         </Form.Item>
         <Form.Item
           label={t('contracts.fields.first_rent_due_date')}
@@ -117,8 +123,11 @@ export const ContractEdit: React.FC<IResourceComponentsProps> = () => {
               required: true,
             },
           ]}
+          getValueProps={(value) => ({
+            value: value ? dayjs(value) : '',
+          })}
         >
-          <DatePicker style={{ width: '100%' }} locale={locale} />
+          <DatePicker style={{ width: '100%' }} />
         </Form.Item>
         <Form.Item
           label={t('contracts.fields.owner')}
