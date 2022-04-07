@@ -155,7 +155,7 @@ function App() {
             show: InvoiceShow,
           },
           {
-            name: 'repair-request',
+            name: 'repair-requests',
             list: RepairRequestList,
             create: RepairRequestCreate,
             edit: RepairRequestEdit,
