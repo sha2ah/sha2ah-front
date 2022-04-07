@@ -51,7 +51,7 @@ export const Navbar = () => {
 
         <nav id="navbar" className="navbar">
           <ul>
-            <li>
+            {/* <li>
               <a className="nav-link scrollto" href="#hero">
                 Home
               </a>
@@ -70,7 +70,7 @@ export const Navbar = () => {
               <a className="nav-link scrollto" href="#contact">
                 Contact
               </a>
-            </li>
+            </li> */}
             <li>
               <Dropdown overlay={menu}>
                 <Button type="link">
