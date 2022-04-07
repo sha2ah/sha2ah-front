@@ -157,6 +157,24 @@
       "show": "Show Contract"
     }
   },
+  "repairRequests": {
+    "repairRequests": "Repair Requests",
+    "fields": {
+      "id": "ID",
+      "date": "Date",
+      "status": "Status",
+      "owner": "Owner",
+      "unit": "Unit",
+      "notes": "Notes",
+      "details": "Details"
+    },
+    "titles": {
+      "create": "Create Repair Request",
+      "edit": "Edit Repair Request",
+      "list": "Repair Requests",
+      "show": "Show Repair Request"
+    }
+  },
   "table": {
     "actions": "Actions"
   }
