@@ -65,11 +65,12 @@ export interface IInvoice {
 
 export interface IRepairRequest {
   id: string
-  title: string
-  type: string
   status: string
   date: string
-  details?: string
+  details: string
+  owner: string
+  unit: string
+  notes?: string
 }
 
 export interface IWallet {
