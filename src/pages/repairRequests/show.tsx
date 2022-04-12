@@ -39,7 +39,7 @@ export const RepairRequestShow: React.FC<IResourceComponentsProps> = () => {
       <MarkdownField value={record?.details} />
 
       <Title level={5}>{t('repairRequests.fields.notes')}</Title>
-      <MarkdownField value={record?.details} />
+      <MarkdownField value={record?.notes} />
     </Show>
   )
 }
