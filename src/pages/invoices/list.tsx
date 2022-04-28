@@ -39,41 +39,41 @@ export const InvoiceList: React.FC<IResourceComponentsProps> = () => {
         <Table.Column
           dataIndex="id"
           key="id"
-          title="ID"
+          title={t('invoices.fields.id')}
           render={(value) => <TextField value={value} />}
           defaultSortOrder={getDefaultSortOrder('id', sorter)}
           sorter
         />
         <Table.Column
-          dataIndex="title"
-          key="title"
-          title="Title"
-          render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder('title', sorter)}
-          sorter
-        />
-        <Table.Column
-          dataIndex="type"
-          key="type"
-          title="Type"
-          render={(value) => <TagField value={value} />}
-          defaultSortOrder={getDefaultSortOrder('type', sorter)}
-          sorter
-        />
-        <Table.Column
           dataIndex="status"
           key="status"
-          title="Status"
+          title={t('invoices.fields.status')}
           render={(value) => <TagField value={value} />}
           defaultSortOrder={getDefaultSortOrder('status', sorter)}
           sorter
         />
         <Table.Column
-          dataIndex="date"
-          key="date"
-          title="Date"
+          dataIndex="payment_method"
+          key="payment_method"
+          title={t('invoices.fields.payment_method')}
+          render={(value) => <TagField value={value} />}
+          defaultSortOrder={getDefaultSortOrder('payment_method', sorter)}
+          sorter
+        />
+        <Table.Column
+          dataIndex="issue_date"
+          key="issue_date"
+          title={t('invoices.fields.issue_date')}
           render={(value) => <DateField value={value} format="LLL" />}
-          defaultSortOrder={getDefaultSortOrder('date', sorter)}
+          defaultSortOrder={getDefaultSortOrder('issue_date', sorter)}
+          sorter
+        />
+        <Table.Column
+          dataIndex="total"
+          key="total"
+          title={t('invoices.fields.total')}
+          render={(value) => <TextField value={value} />}
+          defaultSortOrder={getDefaultSortOrder('total', sorter)}
           sorter
         />
 

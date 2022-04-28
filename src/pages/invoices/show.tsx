@@ -19,24 +19,29 @@ export const InvoiceShow: React.FC<IResourceComponentsProps> = () => {
 
   return (
     <Show isLoading={isLoading}>
-      <Title level={5}>Title</Title>
-      <Text>{record?.title}</Text>
+      <Title level={5}>{t('invoices.fields.total')}</Title>
+      <Text>{record?.total}</Text>
 
-      <Title level={5}>Type</Title>
+      <Title level={5}>{t('invoices.fields.issue_date')}</Title>
       <Text>
-        <Tag>{record?.type}</Tag>
+        <Tag>{record?.issue_date}</Tag>
       </Text>
 
-      <Title level={5}>Status</Title>
+      <Title level={5}>{t('invoices.fields.due_date')}</Title>
+      <Text>
+        <Tag>{record?.due_date}</Tag>
+      </Text>
+
+      <Title level={5}>{t('invoices.fields.due_date')}</Title>
       <Text>
         <Tag>{record?.status}</Tag>
       </Text>
 
-      <Title level={5}>Date</Title>
-      <Text>{record?.date}</Text>
+      <Title level={5}>{t('invoices.fields.payment_method')}</Title>
+      <Text>{record?.payment_method}</Text>
 
-      <Title level={5}>Details</Title>
-      <MarkdownField value={record?.details} />
+      <Title level={5}>{t('invoices.fields.unit')}</Title>
+      <Text>{record?.unit}</Text>
     </Show>
   )
 }

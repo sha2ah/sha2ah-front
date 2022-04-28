@@ -55,16 +55,20 @@ export interface IContract {
 }
 
 export interface IInvoice {
-  id: string
-  title: string
-  type: string
+  id?: string
+  issue_date: string
+  due_date: string
+  payment_method: string
   status: string
-  date: string
+  unit: string
+  total: string
+  created: string
+  modified: string
   details?: string
 }
 
 export interface IRepairRequest {
-  id: string
+  id?: string
   status: string
   date: string
   details: string

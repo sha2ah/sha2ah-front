@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslate, IResourceComponentsProps } from '@pankod/refine-core'
 import {
   Create,
@@ -6,6 +6,7 @@ import {
   Input,
   Select,
   useSelect,
+  DatePicker,
   useForm,
 } from '@pankod/refine-antd'
 
@@ -16,8 +17,19 @@ import 'react-mde/lib/styles/css/react-mde-all.css'
 
 import { IInvoice } from 'interfaces'
 
+import categoryServices from '../../services/categoryServices'
+
 export const InvoiceCreate: React.FC<IResourceComponentsProps> = () => {
   const [selectedTab, setSelectedTab] = useState<'write' | 'preview'>('write')
+  const [statusTypes, setStatusTypes] = useState([])
+
+  const [paymentMethods, setPaymentMethods] = useState([
+    {
+      id: 1,
+      label: 'Fawry',
+      value: 1,
+    },
+  ])
 
   const t = useTranslate()
 
@@ -27,12 +39,23 @@ export const InvoiceCreate: React.FC<IResourceComponentsProps> = () => {
   //   resource: "categories",
   // });
 
+  useEffect(() => {
+    const getStatusTypes = async () => {
+      const { data } = await categoryServices.getStatusTypes()
+      const newStatusTypes = data.map((type: { id: number; name: string }) => {
+        return { label: type.name, value: type.id }
+      })
+      setStatusTypes(newStatusTypes)
+    }
+    getStatusTypes()
+  }, [statusTypes])
+
   return (
     <Create saveButtonProps={saveButtonProps}>
       <Form {...formProps} layout="vertical">
         <Form.Item
-          label="Title"
-          name="title"
+          label={t('invoices.fields.total')}
+          name="total"
           rules={[
             {
               required: true,
@@ -42,29 +65,29 @@ export const InvoiceCreate: React.FC<IResourceComponentsProps> = () => {
           <Input />
         </Form.Item>
         <Form.Item
-          label="Type"
-          name="type"
+          label={t('invoices.fields.issue_date')}
+          name="issue_date"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <Select
-            options={[
-              {
-                label: 'Active',
-                value: 'active',
-              },
-              {
-                label: 'Draft',
-                value: 'draft',
-              },
-            ]}
-          />
+          <DatePicker style={{ width: '100%' }} />
         </Form.Item>
         <Form.Item
-          label="Status"
+          label={t('invoices.fields.due_date')}
+          name="due_date"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <DatePicker style={{ width: '100%' }} />
+        </Form.Item>
+        <Form.Item
+          label={t('invoices.fields.status')}
           name="status"
           rules={[
             {
@@ -72,18 +95,29 @@ export const InvoiceCreate: React.FC<IResourceComponentsProps> = () => {
             },
           ]}
         >
-          <Select
-            options={[
-              {
-                label: 'Active',
-                value: 'active',
-              },
-              {
-                label: 'Draft',
-                value: 'draft',
-              },
-            ]}
-          />
+          <Select options={statusTypes} />
+        </Form.Item>
+        <Form.Item
+          label={t('invoices.fields.payment_method')}
+          name="payment_method"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <Select options={paymentMethods} />
+        </Form.Item>
+        <Form.Item
+          label={t('invoices.fields.unit')}
+          name="unit"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <Select options={paymentMethods} />
         </Form.Item>
 
         {/* <Form.Item
@@ -97,7 +131,7 @@ export const InvoiceCreate: React.FC<IResourceComponentsProps> = () => {
         >
           <Select {...categorySelectProps} />
         </Form.Item> */}
-        <Form.Item label="Details" name="details">
+        {/* <Form.Item label="Details" name="details">
           <ReactMde
             selectedTab={selectedTab}
             onTabChange={setSelectedTab}
@@ -105,7 +139,7 @@ export const InvoiceCreate: React.FC<IResourceComponentsProps> = () => {
               Promise.resolve(<ReactMarkdown>{markdown}</ReactMarkdown>)
             }
           />
-        </Form.Item>
+        </Form.Item> */}
       </Form>
     </Create>
   )
