@@ -175,6 +175,28 @@
       "show": "Show Repair Request"
     }
   },
+  "invoices": {
+    "invoices": "Invoices",
+    "fields": {
+      "id": "ID",
+      "issue_date": "Issue Date",
+      "due_date": "Due Date",
+      "status": "Status",
+      "payment_method": "Payment Method",
+      "unit": "Unit",
+      "total": "Total",
+      "created": "Created At",
+      "modified": "Modified At",
+      "notes": "Notes",
+      "details": "Details"
+    },
+    "titles": {
+      "create": "Create Invoice",
+      "edit": "Edit Invoice",
+      "list": "Invoices",
+      "show": "Show Invoice"
+    }
+  },
   "table": {
     "actions": "Actions"
   }
