@@ -61,7 +61,7 @@ function App() {
           axios.defaults.headers.common = {
             Authorization: `Bearer ${sessionStorage.getItem('token')}`,
           }
-          return Promise.resolve('/estates')
+          return Promise.resolve('/renters')
         })
         .catch(() => Promise.reject())
         .finally(() => {})
@@ -95,21 +95,6 @@ function App() {
       <Refine
         routerProvider={{
           ...routerProvider,
-          routes: [
-            {
-              exact: true,
-              component: Home,
-              path: '/',
-            },
-            {
-              component: Signup,
-              path: '/signup',
-            },
-            {
-              component: NotFound,
-              path: 'x',
-            },
-          ],
         }}
         notificationProvider={notificationProvider}
         dataProvider={dataProvider(

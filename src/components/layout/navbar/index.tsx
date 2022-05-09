@@ -1,4 +1,9 @@
-import { useGetLocale, useSetLocale, useGetIdentity } from '@pankod/refine-core'
+import {
+  useGetLocale,
+  useSetLocale,
+  useGetIdentity,
+  useTranslate,
+} from '@pankod/refine-core'
 import {
   AntdLayout,
   Space,
@@ -17,6 +22,7 @@ const { Link } = routerProvider
 
 const { DownOutlined } = Icons
 const { Text } = Typography
+
 export const Navbar = () => {
   const { i18n } = useTranslation()
   const locale = useGetLocale()
@@ -24,6 +30,8 @@ export const Navbar = () => {
   const { data: user } = useGetIdentity()
 
   const currentLocale = locale()
+
+  const t = useTranslate()
 
   const menu = (
     <Menu selectedKeys={[currentLocale]}>
@@ -46,33 +54,20 @@ export const Navbar = () => {
     <header id="header" className="fixed-top">
       <div className="container d-flex align-items-center justify-content-between">
         <h1 className="logo">
-          <Link to="/">EasyRent</Link>
+          <a href="https://www.sha2ah.com">
+            <img
+              src="/EASY RENT logo.png"
+              alt="EasyRent"
+              width="80"
+              height="60"
+            />
+          </a>
         </h1>
 
         <nav id="navbar" className="navbar">
           <ul>
-            {/* <li>
-              <a className="nav-link scrollto" href="#hero">
-                Home
-              </a>
-            </li>
             <li>
-              <a className="nav-link scrollto" href="#about">
-                About
-              </a>
-            </li>
-            <li>
-              <a className="nav-link scrollto" href="#services">
-                Services
-              </a>
-            </li>
-            <li>
-              <a className="nav-link scrollto" href="#contact">
-                Contact
-              </a>
-            </li> */}
-            <li>
-              <Dropdown overlay={menu}>
+              <Dropdown overlay={menu} trigger={['click']}>
                 <Button type="link">
                   <Space>
                     <Avatar
@@ -85,15 +80,33 @@ export const Navbar = () => {
                 </Button>
               </Dropdown>
             </li>
+
             <li>
-              <Link to="/signup" className="getstarted">
-                Get Started
-              </Link>
+              <a href="https://www.sha2ah.com/signup" className="getstarted">
+                {t('pages.login.signup')}
+              </a>
             </li>
           </ul>
-          <Link to="/signup" className="getstarted mobile-nav-toggle">
-            Get Started
-          </Link>
+          <div className="mobile-nav-toggle">
+            <Dropdown overlay={menu} trigger={['click']}>
+              <Button type="link">
+                <Space>
+                  <Avatar
+                    size={16}
+                    src={`/images/flags/${currentLocale}.svg`}
+                  />
+                  <DownOutlined />
+                </Space>
+              </Button>
+            </Dropdown>
+
+            <a
+              href="https://www.sha2ah.com/signup"
+              className="getstarted mobile-nav-toggle"
+            >
+              {t('pages.login.signup')}
+            </a>
+          </div>
         </nav>
       </div>
     </header>

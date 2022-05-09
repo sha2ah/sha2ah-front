@@ -51,7 +51,7 @@ export const Header: React.FC = () => {
         backgroundColor: '#FFF',
       }}
     >
-      <Dropdown overlay={menu}>
+      <Dropdown overlay={menu} trigger={['click']}>
         <Button type="link">
           <Space>
             <Avatar size={16} src={`/images/flags/${currentLocale}.svg`} />

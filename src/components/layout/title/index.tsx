@@ -7,7 +7,7 @@ import './styles.scss'
 const { Link } = routerProvider
 
 export const Title: React.FC<TitleProps> = ({ collapsed }) => (
-  <Link to="/">
+  <Link to="/renters">
     {collapsed ? (
       <img
         src={'/EASY RENT logo white.png'}

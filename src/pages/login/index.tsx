@@ -84,9 +84,9 @@ export const Login: React.FC = () => {
                       size="large"
                     />
                   </Form.Item>
-                  <div className="text-left">
+                  {/* <div className="text-left">
                     <a href="#">{t('pages.login.forgotPassword')}</a>
-                  </div>
+                  </div> */}
                   <Button size="large" htmlType="submit" block>
                     {t('pages.login.signin')}
                   </Button>
@@ -94,9 +94,12 @@ export const Login: React.FC = () => {
                 <div style={{ marginTop: 8 }}>
                   <Text style={{ fontSize: 12 }}>
                     {t('pages.login.noAccount')}{' '}
-                    <Link to="/signup" style={{ fontWeight: 'bold' }}>
+                    <a
+                      href="https://www.sha2ah.com/signup"
+                      style={{ fontWeight: 'bold' }}
+                    >
                       {t('pages.login.signup')}
-                    </Link>
+                    </a>
                   </Text>
                 </div>
               </Card>

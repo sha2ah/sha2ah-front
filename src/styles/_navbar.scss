@@ -131,7 +131,20 @@
 
 @media (max-width: 991px) {
   .mobile-nav-toggle {
-    display: block !important;
+    display: flex !important;
+    margin: 0;
+
+    .ant-space {
+      .nav-link {
+        padding: 10px 1rem;
+        .text {
+          display: none;
+        }
+      }
+    }
+    .getstarted {
+      margin: 0;
+    }
   }
 
   .navbar ul {

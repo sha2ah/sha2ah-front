@@ -16,12 +16,15 @@
 
   .ant-card {
     padding: 2rem 1rem;
-    margin: 0 0 3rem;
-    min-width: 400px;
-    margin-top: 100px;
+    margin-bottom: 3rem;
+    max-width: 500px;
+    min-width: 500px;
+    margin-top: calc(100px + 3rem);
 
     h1 {
+      text-transform: uppercase;
       text-align: center;
+      font-size: 2rem;
     }
 
     .ant-btn {
@@ -39,6 +42,19 @@
     .ant-typography {
       a {
         color: $main-clr;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  #auth {
+    .ant-card {
+      max-width: 400px;
+      min-width: 340px;
+
+      h1 {
+        font-size: 1.5rem;
       }
     }
   }
