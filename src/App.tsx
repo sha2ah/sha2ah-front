@@ -71,7 +71,7 @@ function App() {
 
     logout: () => {
       sessionStorage.removeItem('token')
-      document.cookie = 'token=; Max-Age=-99999999;'
+      document.cookie = 'token=; Max-Age=0; path=/; domain=sha2ah.com'
       return Promise.resolve()
     },
     checkError: () => Promise.resolve(),
