@@ -6,6 +6,7 @@ import './styles/bootstrap.min.css'
 import './styles/style.scss'
 import dataProvider from '@pankod/refine-simple-rest'
 import axios from 'axios'
+import getCookie from './utils/getCookie'
 
 import { Home } from './pages/home.server'
 import { NotFound } from './pages/notfound'
@@ -70,11 +71,12 @@ function App() {
 
     logout: () => {
       sessionStorage.removeItem('token')
+      document.cookie = 'token=; Max-Age=-99999999;'
       return Promise.resolve()
     },
     checkError: () => Promise.resolve(),
     checkAuth: () =>
-      sessionStorage.getItem('token')
+      sessionStorage.getItem('token') || getCookie('token')
         ? Promise.resolve()
         : Promise.reject({ redirectPath: '/login' }),
 

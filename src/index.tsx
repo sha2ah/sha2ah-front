@@ -7,8 +7,11 @@ import App from './App'
 import './i18n'
 
 import axios from 'axios'
+import getCookie from './utils/getCookie'
+
+const token = sessionStorage.getItem('token') || getCookie('token')
 axios.defaults.headers.common = {
-  Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+  Authorization: `Bearer ${token}`,
 }
 ReactDOM.render(
   <React.StrictMode>
