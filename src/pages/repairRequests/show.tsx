@@ -20,7 +20,7 @@ export const RepairRequestShow: React.FC<IResourceComponentsProps> = () => {
   return (
     <Show isLoading={isLoading}>
       <Title level={5}>{t('repairRequests.fields.owner')}</Title>
-      <Text>{record?.owner}</Text>
+      <Text>{record?.user}</Text>
 
       <Title level={5}>{t('repairRequests.fields.unit')}</Title>
       <Text>

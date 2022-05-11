@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslate, IResourceComponentsProps } from '@pankod/refine-core'
 import {
   Create,
@@ -9,16 +9,18 @@ import {
   DatePicker,
   useForm,
 } from '@pankod/refine-antd'
+import unitServices from '../../services/unitServices'
 
 import ReactMarkdown from 'react-markdown'
 import ReactMde from 'react-mde'
 
 import 'react-mde/lib/styles/css/react-mde-all.css'
 
-import { IRepairRequest } from 'interfaces'
+import { IRepairRequest, IUnit } from 'interfaces'
 
 export const RepairRequestCreate: React.FC<IResourceComponentsProps> = () => {
   const [selectedTab, setSelectedTab] = useState<'write' | 'preview'>('write')
+  const [units, setUnits] = useState([])
 
   const t = useTranslate()
 
@@ -28,12 +30,23 @@ export const RepairRequestCreate: React.FC<IResourceComponentsProps> = () => {
   //   resource: "categories",
   // });
 
+  useEffect(() => {
+    const getUnits = async () => {
+      const { data } = await unitServices.getAll()
+      const newUnits = data.map((unit: IUnit) => {
+        return { label: unit.name, value: unit.id }
+      })
+      setUnits(newUnits)
+    }
+    getUnits()
+  }, [units])
+
   return (
     <Create saveButtonProps={saveButtonProps}>
       <Form {...formProps} layout="vertical">
         <Form.Item
           label={t('repairRequests.fields.owner')}
-          name="owner"
+          name="user"
           rules={[
             {
               required: true,
@@ -51,7 +64,7 @@ export const RepairRequestCreate: React.FC<IResourceComponentsProps> = () => {
             },
           ]}
         >
-          <Input />
+          <Select options={units} />
         </Form.Item>
         <Form.Item
           label={t('repairRequests.fields.status')}
@@ -65,12 +78,16 @@ export const RepairRequestCreate: React.FC<IResourceComponentsProps> = () => {
           <Select
             options={[
               {
-                label: 'Active',
-                value: 'active',
+                label: 'Closed',
+                value: 'closed',
               },
               {
-                label: 'Draft',
-                value: 'draft',
+                label: 'Pending',
+                value: 'pending',
+              },
+              {
+                label: 'Cancelled',
+                value: 'cancelled',
               },
             ]}
           />
@@ -84,7 +101,7 @@ export const RepairRequestCreate: React.FC<IResourceComponentsProps> = () => {
             },
           ]}
         >
-          <DatePicker style={{ width: '100%' }} />
+          <DatePicker style={{ width: '100%' }} format="MM/DD/YYYY" />
         </Form.Item>
 
         {/* <Form.Item

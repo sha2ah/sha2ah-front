@@ -20,7 +20,7 @@ export const ContractShow: React.FC<IResourceComponentsProps> = () => {
   return (
     <Show isLoading={isLoading}>
       <Title level={5}>{t('contracts.fields.beneficiary_name')}</Title>
-      <Text>{record?.beneficiary_name}</Text>
+      <Text>{record?.contract_holder_name}</Text>
 
       <Title level={5}>{t('contracts.fields.type')}</Title>
       <Text>
@@ -53,7 +53,7 @@ export const ContractShow: React.FC<IResourceComponentsProps> = () => {
       </Text>
 
       <Title level={5}>{t('contracts.fields.owner')}</Title>
-      <Text>{record?.owner}</Text>
+      <Text>{record?.user}</Text>
 
       <Title level={5}>{t('contracts.fields.unit')}</Title>
       <Text>{record?.unit}</Text>

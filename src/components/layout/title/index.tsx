@@ -16,6 +16,7 @@ export const Title: React.FC<TitleProps> = ({ collapsed }) => (
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          maxWidth: '100px',
         }}
       />
     ) : (

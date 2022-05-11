@@ -16,18 +16,20 @@ import dayjs from 'dayjs'
 
 import 'react-mde/lib/styles/css/react-mde-all.css'
 
-import { IInvoice } from 'interfaces'
+import { IInvoice, IUnit } from 'interfaces'
 import categoryServices from '../../services/categoryServices'
+import unitServices from '../../services/unitServices'
 
 export const InvoiceEdit: React.FC<IResourceComponentsProps> = () => {
   const [selectedTab, setSelectedTab] = useState<'write' | 'preview'>('write')
   const [statusTypes, setStatusTypes] = useState([])
+  const [units, setUnits] = useState([])
 
   const [paymentMethods, setPaymentMethods] = useState([
     {
       id: 1,
       label: 'Fawry',
-      value: 1,
+      value: 'fawry',
     },
   ])
 
@@ -50,6 +52,17 @@ export const InvoiceEdit: React.FC<IResourceComponentsProps> = () => {
     }
     getStatusTypes()
   }, [statusTypes])
+
+  useEffect(() => {
+    const getUnits = async () => {
+      const { data } = await unitServices.getAll()
+      const newUnits = data.map((unit: IUnit) => {
+        return { label: unit.name, value: unit.id }
+      })
+      setUnits(newUnits)
+    }
+    getUnits()
+  }, [units])
 
   return (
     <Edit saveButtonProps={saveButtonProps}>
@@ -124,7 +137,7 @@ export const InvoiceEdit: React.FC<IResourceComponentsProps> = () => {
             },
           ]}
         >
-          <Select options={paymentMethods} />
+          <Select options={units} />
         </Form.Item>
 
         {/* <Form.Item

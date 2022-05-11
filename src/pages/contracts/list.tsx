@@ -44,11 +44,11 @@ export const ContractList: React.FC<IResourceComponentsProps> = () => {
           defaultSortOrder={getDefaultSortOrder('id')}
         />
         <Table.Column
-          dataIndex="beneficiary_name"
-          key="beneficiary_name"
+          dataIndex="contract_holder_name"
+          key="contract_holder_name"
           title={t('contracts.fields.beneficiary_name')}
           render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder('beneficiary_name')}
+          defaultSortOrder={getDefaultSortOrder('contract_holder_name')}
         />
         <Table.Column
           dataIndex="type"
@@ -72,11 +72,11 @@ export const ContractList: React.FC<IResourceComponentsProps> = () => {
           defaultSortOrder={getDefaultSortOrder('rent_frequency')}
         />
         <Table.Column
-          dataIndex="owner"
-          key="owner"
+          dataIndex="user"
+          key="user"
           title={t('contracts.fields.owner')}
           render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder('owner')}
+          defaultSortOrder={getDefaultSortOrder('user')}
         />
         <Table.Column
           dataIndex="unit"

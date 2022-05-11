@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslate, IResourceComponentsProps } from '@pankod/refine-core'
 import {
   Edit,
@@ -11,14 +11,16 @@ import {
 } from '@pankod/refine-antd'
 import ReactMarkdown from 'react-markdown'
 import ReactMde from 'react-mde'
+import unitServices from '../../services/unitServices'
 
 import dayjs from 'dayjs'
 import 'react-mde/lib/styles/css/react-mde-all.css'
 
-import { IRepairRequest } from 'interfaces'
+import { IRepairRequest, IUnit } from 'interfaces'
 
 export const RepairRequestEdit: React.FC<IResourceComponentsProps> = () => {
   const [selectedTab, setSelectedTab] = useState<'write' | 'preview'>('write')
+  const [units, setUnits] = useState([])
 
   const t = useTranslate()
 
@@ -29,12 +31,23 @@ export const RepairRequestEdit: React.FC<IResourceComponentsProps> = () => {
   //   defaultValue: queryResult?.data?.data.category.id,
   // });
 
+  useEffect(() => {
+    const getUnits = async () => {
+      const { data } = await unitServices.getAll()
+      const newUnits = data.map((unit: IUnit) => {
+        return { label: unit.name, value: unit.id }
+      })
+      setUnits(newUnits)
+    }
+    getUnits()
+  }, [units])
+
   return (
     <Edit saveButtonProps={saveButtonProps}>
       <Form {...formProps} layout="vertical">
         <Form.Item
           label={t('repairRequests.fields.owner')}
-          name="owner"
+          name="user"
           rules={[
             {
               required: true,
@@ -52,7 +65,7 @@ export const RepairRequestEdit: React.FC<IResourceComponentsProps> = () => {
             },
           ]}
         >
-          <Input />
+          <Select options={units} />
         </Form.Item>
         <Form.Item
           label={t('repairRequests.fields.status')}
@@ -66,12 +79,16 @@ export const RepairRequestEdit: React.FC<IResourceComponentsProps> = () => {
           <Select
             options={[
               {
-                label: 'Active',
-                value: 'active',
+                label: 'Closed',
+                value: 'closed',
               },
               {
-                label: 'Draft',
-                value: 'draft',
+                label: 'Pending',
+                value: 'pending',
+              },
+              {
+                label: 'Cancelled',
+                value: 'cancelled',
               },
             ]}
           />
@@ -88,7 +105,7 @@ export const RepairRequestEdit: React.FC<IResourceComponentsProps> = () => {
             value: value ? dayjs(value) : '',
           })}
         >
-          <DatePicker style={{ width: '100%' }} />
+          <DatePicker style={{ width: '100%' }} format="YYYY-MM-DD" />
         </Form.Item>
 
         {/* <Form.Item

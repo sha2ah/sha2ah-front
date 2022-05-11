@@ -45,11 +45,11 @@ export const RepairRequestList: React.FC<IResourceComponentsProps> = () => {
           sorter
         />
         <Table.Column
-          dataIndex="owner"
-          key="owner"
+          dataIndex="user"
+          key="user"
           title={t('repairRequests.fields.owner')}
           render={(value) => <TextField value={value} />}
-          defaultSortOrder={getDefaultSortOrder('owner', sorter)}
+          defaultSortOrder={getDefaultSortOrder('user', sorter)}
           sorter
         />
         <Table.Column

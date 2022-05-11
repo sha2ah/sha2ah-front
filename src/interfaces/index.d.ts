@@ -49,7 +49,7 @@ export interface IContract {
   date_from: string
   date_to: string
   first_rent_due_date: string
-  owner: string
+  user: string
   unit: string
   notes: string
 }
@@ -72,7 +72,7 @@ export interface IRepairRequest {
   status: string
   date: string
   details: string
-  owner: string
+  user: string
   unit: string
   notes?: string
 }

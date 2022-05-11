@@ -33,7 +33,7 @@ export const ContractCreate: React.FC<IResourceComponentsProps> = () => {
       <Form {...formProps} layout="vertical">
         <Form.Item
           label={t('contracts.fields.beneficiary_name')}
-          name="beneficiary_name"
+          name="contract_holder_name"
           rules={[
             {
               required: true,
@@ -54,12 +54,12 @@ export const ContractCreate: React.FC<IResourceComponentsProps> = () => {
           <Select
             options={[
               {
-                label: 'Active',
-                value: 'active',
+                label: 'Rent',
+                value: 'rent',
               },
               {
-                label: 'Draft',
-                value: 'draft',
+                label: 'Investment',
+                value: 'investment',
               },
             ]}
           />
@@ -84,7 +84,14 @@ export const ContractCreate: React.FC<IResourceComponentsProps> = () => {
             },
           ]}
         >
-          <Input />
+          <Select
+            options={[
+              {
+                label: 'Monthly',
+                value: 'monthly',
+              },
+            ]}
+          />
         </Form.Item>
         <Form.Item
           label={t('contracts.fields.date_from')}
@@ -121,7 +128,7 @@ export const ContractCreate: React.FC<IResourceComponentsProps> = () => {
         </Form.Item>
         <Form.Item
           label={t('contracts.fields.owner')}
-          name="owner"
+          name="user"
           rules={[
             {
               required: true,
